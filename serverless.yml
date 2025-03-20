@@ -17,6 +17,8 @@ provider:
         - lambda:InvokeFunction
       Resource: "*"
 plugins:
+  - serverless-offline
+  - serverless-plugin-optimize
   - serverless-split-stack
 custom:
   splitStacks:
@@ -121,7 +123,5 @@ functions:
           path: function12
           method: post
 
-plugins:
-  - serverless-offline
-  - serverless-plugin-optimize
+
 
