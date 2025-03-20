@@ -16,7 +16,8 @@ provider:
       Action:
         - lambda:InvokeFunction
       Resource: "*"
-
+plugins:
+  - serverless-split-stack
 custom:
   splitStacks:
     stacks:
