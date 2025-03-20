@@ -170,6 +170,7 @@
       "plugins": [
         "serverless-offline",
         "serverless-plugin-optimize"
+        "serverless-plugin-split-stacks"
       ]
     },
     "provider": {
