@@ -7,8 +7,102 @@ service: stack1
 
 provider:
   name: aws
-  runtime: nodejs20.x
+  runtime: nodejs18.x
+  region: us-east-1
+  memorySize: 128
+  timeout: 10
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - lambda:InvokeFunction
+      Resource: "*"
 
 functions:
-  hello:
-    handler: handler.hello
+  function1:
+    handler: handler.function1
+    events:
+      - http:
+          path: function1
+          method: get
+
+  function2:
+    handler: handler.function2
+    events:
+      - http:
+          path: function2
+          method: post
+
+  function3:
+    handler: handler.function3
+    events:
+      - http:
+          path: function3
+          method: get
+
+  function4:
+    handler: handler.function4
+    events:
+      - http:
+          path: function4
+          method: post
+
+  function5:
+    handler: handler.function5
+    events:
+      - http:
+          path: function5
+          method: get
+
+  function6:
+    handler: handler.function6
+    events:
+      - http:
+          path: function6
+          method: post
+
+  function7:
+    handler: handler.function7
+    events:
+      - http:
+          path: function7
+          method: get
+
+  function8:
+    handler: handler.function8
+    events:
+      - http:
+          path: function8
+          method: post
+
+  function9:
+    handler: handler.function9
+    events:
+      - http:
+          path: function9
+          method: get
+
+  function10:
+    handler: handler.function10
+    events:
+      - http:
+          path: function10
+          method: post
+
+  function11:
+    handler: handler.function11
+    events:
+      - http:
+          path: function11
+          method: get
+
+  function12:
+    handler: handler.function12
+    events:
+      - http:
+          path: function12
+          method: post
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-optimize
+
