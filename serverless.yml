@@ -19,7 +19,7 @@ provider:
 plugins:
   - serverless-offline
   - serverless-plugin-optimize
-  - serverless-split-stack
+  - serverless-split-stacks
 custom:
   splitStacks:
     stacks:
