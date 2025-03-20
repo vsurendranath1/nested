@@ -17,6 +17,24 @@ provider:
         - lambda:InvokeFunction
       Resource: "*"
 
+custom:
+  splitStacks:
+    stacks:
+      Stack1: 
+        - function1
+        - function5
+        - function9
+      Stack2: 
+        - function2
+        - function6
+        - function11
+      Stack3: 
+        - function3
+        - function4
+        - function7
+        - function8
+        - function10
+        - function12
 functions:
   function1:
     handler: handler.function1
