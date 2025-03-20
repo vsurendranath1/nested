@@ -188,13 +188,18 @@
         }
       ]
     },
+    "error": {
+      "message": "spawn npm ENOENT",
+      "stack": "Error: spawn npm ENOENT\n    at notFoundError (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:233:48048)\n    at verifyENOENT (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:233:48544)\n    at cp.emit (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:233:48353)\n    at ChildProcess._handle.onexit (node:internal/child_process:293:12)",
+      "code": "ENOENT"
+    },
     "serviceRawFile": "# \"org\" ensures this Service is used with the correct Serverless Framework Access Key.\r\norg: surendra123\r\n# \"app\" enables Serverless Framework Dashboard features and sharing them with other Services.\r\napp: nestedstacks\r\n# \"service\" is the name of this project. This will also be added to your AWS resource names.\r\nservice: stack1\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  region: us-east-1\r\n  memorySize: 128\r\n  timeout: 10\r\n  iamRoleStatements:\r\n    - Effect: Allow\r\n      Action:\r\n        - lambda:InvokeFunction\r\n      Resource: \"*\"\r\n\r\nfunctions:\r\n  function1:\r\n    handler: handler.function1\r\n    events:\r\n      - http:\r\n          path: function1\r\n          method: get\r\n\r\n  function2:\r\n    handler: handler.function2\r\n    events:\r\n      - http:\r\n          path: function2\r\n          method: post\r\n\r\n  function3:\r\n    handler: handler.function3\r\n    events:\r\n      - http:\r\n          path: function3\r\n          method: get\r\n\r\n  function4:\r\n    handler: handler.function4\r\n    events:\r\n      - http:\r\n          path: function4\r\n          method: post\r\n\r\n  function5:\r\n    handler: handler.function5\r\n    events:\r\n      - http:\r\n          path: function5\r\n          method: get\r\n\r\n  function6:\r\n    handler: handler.function6\r\n    events:\r\n      - http:\r\n          path: function6\r\n          method: post\r\n\r\n  function7:\r\n    handler: handler.function7\r\n    events:\r\n      - http:\r\n          path: function7\r\n          method: get\r\n\r\n  function8:\r\n    handler: handler.function8\r\n    events:\r\n      - http:\r\n          path: function8\r\n          method: post\r\n\r\n  function9:\r\n    handler: handler.function9\r\n    events:\r\n      - http:\r\n          path: function9\r\n          method: get\r\n\r\n  function10:\r\n    handler: handler.function10\r\n    events:\r\n      - http:\r\n          path: function10\r\n          method: post\r\n\r\n  function11:\r\n    handler: handler.function11\r\n    events:\r\n      - http:\r\n          path: function11\r\n          method: get\r\n\r\n  function12:\r\n    handler: handler.function12\r\n    events:\r\n      - http:\r\n          path: function12\r\n          method: post\r\n\r\nplugins:\r\n  - serverless-offline\r\n  - serverless-plugin-optimize\r\n\r\n",
     "command": [
       "plugin",
       "install"
     ],
     "options": {
-      "name": "serverless-plugin-optimize"
+      "name": "serverless-split-stack"
     },
     "serviceProviderAwsCfStackId": null,
     "serviceProviderAwsCfStackCreated": null,

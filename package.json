@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "serverless-offline": "^14.4.0",
-    "serverless-plugin-optimize": "^4.2.1-rc.1"
+    "serverless-plugin-optimize": "^4.2.1-rc.1",
+    "serverless-plugin-split-stacks": "^1.14.0"
   }
 }
