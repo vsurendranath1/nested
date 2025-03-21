@@ -31,7 +31,38 @@
             ],
             "Resource": "*"
           }
-        ]
+        ],
+        "stage": "dev",
+        "versionFunctions": true
+      },
+      "plugins": [
+        "serverless-offline",
+        "serverless-plugin-optimize",
+        "serverless-split-stacks"
+      ],
+      "custom": {
+        "splitStacks": {
+          "stacks": {
+            "Stack1": [
+              "function1",
+              "function5",
+              "function9"
+            ],
+            "Stack2": [
+              "function2",
+              "function6",
+              "function11"
+            ],
+            "Stack3": [
+              "function3",
+              "function4",
+              "function7",
+              "function8",
+              "function10",
+              "function12"
+            ]
+          }
+        }
       },
       "functions": {
         "function1": {
@@ -166,11 +197,7 @@
             }
           ]
         }
-      },
-      "plugins": [
-        "serverless-offline",
-        "serverless-plugin-optimize"
-      ]
+      }
     },
     "provider": {
       "name": "aws",
@@ -186,25 +213,126 @@
           ],
           "Resource": "*"
         }
-      ]
+      ],
+      "stage": "dev",
+      "versionFunctions": true
+    },
+    "dashboard": {
+      "isEnabledForService": true,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": {
+        "providers": false,
+        "monitoring": false
+      },
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": "7HnwJH7yT0pf1BS6bR",
+      "serviceProvider": null,
+      "instanceParameters": null
     },
     "error": {
-      "message": "spawn npm ENOENT",
-      "stack": "Error: spawn npm ENOENT\n    at notFoundError (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:233:48048)\n    at verifyENOENT (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:233:48544)\n    at cp.emit (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:233:48353)\n    at ChildProcess._handle.onexit (node:internal/child_process:293:12)",
-      "code": "ENOENT"
+      "message": "Serverless plugin \"serverless-split-stacks\" not found. Make sure it's installed and listed in the \"plugins\" section of your serverless config file. Use the --debug flag to learn more.",
+      "stack": "ServerlessError2: Serverless plugin \"serverless-split-stacks\" not found. Make sure it's installed and listed in the \"plugins\" section of your serverless config file. Use the --debug flag to learn more.\n    at PluginManager.resolveServicePlugins (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:809:2914)\n    at async PluginManager.loadAllPlugins (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:809:1292)\n    at async Serverless.init (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:816:9840)\n    at async runFramework (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:843:837)\n    at async TraditionalRunner.run (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:839:28308)\n    at async route (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:877:2779)\n    at async Object.run (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:878:3661)\n    at async run2 (file:///C:/Users/LENOVO/.serverless/releases/4.9.0/package/dist/sf-core.js:878:4814)",
+      "code": "PLUGIN_NOT_FOUND"
     },
-    "serviceRawFile": "# \"org\" ensures this Service is used with the correct Serverless Framework Access Key.\r\norg: surendra123\r\n# \"app\" enables Serverless Framework Dashboard features and sharing them with other Services.\r\napp: nestedstacks\r\n# \"service\" is the name of this project. This will also be added to your AWS resource names.\r\nservice: stack1\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  region: us-east-1\r\n  memorySize: 128\r\n  timeout: 10\r\n  iamRoleStatements:\r\n    - Effect: Allow\r\n      Action:\r\n        - lambda:InvokeFunction\r\n      Resource: \"*\"\r\n\r\nfunctions:\r\n  function1:\r\n    handler: handler.function1\r\n    events:\r\n      - http:\r\n          path: function1\r\n          method: get\r\n\r\n  function2:\r\n    handler: handler.function2\r\n    events:\r\n      - http:\r\n          path: function2\r\n          method: post\r\n\r\n  function3:\r\n    handler: handler.function3\r\n    events:\r\n      - http:\r\n          path: function3\r\n          method: get\r\n\r\n  function4:\r\n    handler: handler.function4\r\n    events:\r\n      - http:\r\n          path: function4\r\n          method: post\r\n\r\n  function5:\r\n    handler: handler.function5\r\n    events:\r\n      - http:\r\n          path: function5\r\n          method: get\r\n\r\n  function6:\r\n    handler: handler.function6\r\n    events:\r\n      - http:\r\n          path: function6\r\n          method: post\r\n\r\n  function7:\r\n    handler: handler.function7\r\n    events:\r\n      - http:\r\n          path: function7\r\n          method: get\r\n\r\n  function8:\r\n    handler: handler.function8\r\n    events:\r\n      - http:\r\n          path: function8\r\n          method: post\r\n\r\n  function9:\r\n    handler: handler.function9\r\n    events:\r\n      - http:\r\n          path: function9\r\n          method: get\r\n\r\n  function10:\r\n    handler: handler.function10\r\n    events:\r\n      - http:\r\n          path: function10\r\n          method: post\r\n\r\n  function11:\r\n    handler: handler.function11\r\n    events:\r\n      - http:\r\n          path: function11\r\n          method: get\r\n\r\n  function12:\r\n    handler: handler.function12\r\n    events:\r\n      - http:\r\n          path: function12\r\n          method: post\r\n\r\nplugins:\r\n  - serverless-offline\r\n  - serverless-plugin-optimize\r\n\r\n",
+    "serviceRawFile": "# \"org\" ensures this Service is used with the correct Serverless Framework Access Key.\r\norg: surendra123\r\n# \"app\" enables Serverless Framework Dashboard features and sharing them with other Services.\r\napp: nestedstacks\r\n# \"service\" is the name of this project. This will also be added to your AWS resource names.\r\nservice: stack1\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  region: us-east-1\r\n  memorySize: 128\r\n  timeout: 10\r\n  iamRoleStatements:\r\n    - Effect: Allow\r\n      Action:\r\n        - lambda:InvokeFunction\r\n      Resource: \"*\"\r\nplugins:\r\n  - serverless-offline\r\n  - serverless-plugin-optimize\r\n  - serverless-split-stacks\r\ncustom:\r\n  splitStacks:\r\n    stacks:\r\n      Stack1: \r\n        - function1\r\n        - function5\r\n        - function9\r\n      Stack2: \r\n        - function2\r\n        - function6\r\n        - function11\r\n      Stack3: \r\n        - function3\r\n        - function4\r\n        - function7\r\n        - function8\r\n        - function10\r\n        - function12\r\nfunctions:\r\n  function1:\r\n    handler: handler.function1\r\n    events:\r\n      - http:\r\n          path: function1\r\n          method: get\r\n\r\n  function2:\r\n    handler: handler.function2\r\n    events:\r\n      - http:\r\n          path: function2\r\n          method: post\r\n\r\n  function3:\r\n    handler: handler.function3\r\n    events:\r\n      - http:\r\n          path: function3\r\n          method: get\r\n\r\n  function4:\r\n    handler: handler.function4\r\n    events:\r\n      - http:\r\n          path: function4\r\n          method: post\r\n\r\n  function5:\r\n    handler: handler.function5\r\n    events:\r\n      - http:\r\n          path: function5\r\n          method: get\r\n\r\n  function6:\r\n    handler: handler.function6\r\n    events:\r\n      - http:\r\n          path: function6\r\n          method: post\r\n\r\n  function7:\r\n    handler: handler.function7\r\n    events:\r\n      - http:\r\n          path: function7\r\n          method: get\r\n\r\n  function8:\r\n    handler: handler.function8\r\n    events:\r\n      - http:\r\n          path: function8\r\n          method: post\r\n\r\n  function9:\r\n    handler: handler.function9\r\n    events:\r\n      - http:\r\n          path: function9\r\n          method: get\r\n\r\n  function10:\r\n    handler: handler.function10\r\n    events:\r\n      - http:\r\n          path: function10\r\n          method: post\r\n\r\n  function11:\r\n    handler: handler.function11\r\n    events:\r\n      - http:\r\n          path: function11\r\n          method: get\r\n\r\n  function12:\r\n    handler: handler.function12\r\n    events:\r\n      - http:\r\n          path: function12\r\n          method: post\r\n\r\n\r\n\r\n",
     "command": [
-      "plugin",
-      "install"
+      "deploy"
     ],
-    "options": {
-      "name": "serverless-split-stack"
-    },
-    "serviceProviderAwsCfStackId": null,
-    "serviceProviderAwsCfStackCreated": null,
-    "serviceProviderAwsCfStackUpdated": null,
-    "serviceProviderAwsCfStackStatus": null,
-    "serviceProviderAwsCfStackOutputs": null
+    "options": {},
+    "orgId": "da75ea06-b135-4515-b37d-2f2f1e9db8a8",
+    "orgName": "surendra123",
+    "userId": "WF8Kn58dG01Zf874SN",
+    "userName": "surendra123",
+    "serviceProviderAwsAccountId": "750770785973",
+    "serviceProviderAwsCfStackName": "stack1-dev",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:750770785973:stack/stack1-dev/4cfb12a0-05a9-11f0-b216-0ed8c3b51117",
+    "serviceProviderAwsCfStackCreated": "2025-03-20T16:35:14.876Z",
+    "serviceProviderAwsCfStackUpdated": "2025-03-20T18:38:35.781Z",
+    "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
+    "serviceProviderAwsCfStackOutputs": [
+      {
+        "OutputKey": "Function10LambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:750770785973:function:stack1-dev-function10:4",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-stack1-dev-Function10LambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "Function7LambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:750770785973:function:stack1-dev-function7:4",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-stack1-dev-Function7LambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "Function8LambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:750770785973:function:stack1-dev-function8:4",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-stack1-dev-Function8LambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "Function1LambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:750770785973:function:stack1-dev-function1:4",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-stack1-dev-Function1LambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "Function5LambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:750770785973:function:stack1-dev-function5:4",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-stack1-dev-Function5LambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "Function12LambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:750770785973:function:stack1-dev-function12:4",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-stack1-dev-Function12LambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "ServerlessDeploymentBucketName",
+        "OutputValue": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+        "ExportName": "sls-stack1-dev-ServerlessDeploymentBucketName"
+      },
+      {
+        "OutputKey": "Function3LambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:750770785973:function:stack1-dev-function3:4",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-stack1-dev-Function3LambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "Function2LambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:750770785973:function:stack1-dev-function2:4",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-stack1-dev-Function2LambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "Function4LambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:750770785973:function:stack1-dev-function4:4",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-stack1-dev-Function4LambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "Function6LambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:750770785973:function:stack1-dev-function6:4",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-stack1-dev-Function6LambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "Function9LambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:750770785973:function:stack1-dev-function9:4",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-stack1-dev-Function9LambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "Function11LambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:750770785973:function:stack1-dev-function11:4",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-stack1-dev-Function11LambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "ServiceEndpoint",
+        "OutputValue": "https://nqjlx2i9dl.execute-api.us-east-1.amazonaws.com/dev",
+        "Description": "URL of the service endpoint",
+        "ExportName": "sls-stack1-dev-ServiceEndpoint"
+      }
+    ]
   }
 }
