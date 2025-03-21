@@ -197,7 +197,16 @@
             }
           ]
         }
+<<<<<<< HEAD
       }
+=======
+      },
+      "plugins": [
+        "serverless-offline",
+        "serverless-plugin-optimize"
+        "serverless-plugin-split-stacks"
+      ]
+>>>>>>> e7bfb7b1d6166d4d4d90d2231c95e8b5cf05d21e
     },
     "provider": {
       "name": "aws",
