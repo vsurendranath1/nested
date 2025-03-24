@@ -26,17 +26,7 @@ custom:
     stacks:
       Stack1: 
         - function1
-        - function5
-        - function9
-      Stack2: 
-        - function2
-        - function6
-       
-      Stack3: 
-        - function3
-        - function4
-        - function7
-        - function8
+    
         
 functions:
   function1:
@@ -46,61 +36,7 @@ functions:
           path: function1
           method: get
 
-  function2:
-    handler: handler.function2
-    events:
-      - http:
-          path: function2
-          method: post
-
-  function3:
-    handler: handler.function3
-    events:
-      - http:
-          path: function3
-          method: get
-
-  function4:
-    handler: handler.function4
-    events:
-      - http:
-          path: function4
-          method: post
-
-  function5:
-    handler: handler.function5
-    events:
-      - http:
-          path: function5
-          method: get
-
-  function6:
-    handler: handler.function6
-    events:
-      - http:
-          path: function6
-          method: post
-
-  function7:
-    handler: handler.function7
-    events:
-      - http:
-          path: function7
-          method: get
-
-  function8:
-    handler: handler.function8
-    events:
-      - http:
-          path: function8
-          method: post
-
-  function9:
-    handler: handler.function9
-    events:
-      - http:
-          path: function9
-          method: get
+ 
  
  
                    
