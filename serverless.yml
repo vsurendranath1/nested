@@ -23,9 +23,8 @@ plugins:
     
 custom:
   splitStacks:
-    stacks:
-      Stack1: 
-        - function1
+    perFunction: false
+    perType: true
     
         
 functions:
