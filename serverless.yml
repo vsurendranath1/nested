@@ -24,8 +24,8 @@ plugins:
 custom:
   splitStacks:
     perFunction: false
-    perType: true
-    perGroupFunction: false
+    perType: false
+    perGroupFunction: true
     stackConcurrency: 5 
     resourceConcurrency: 10
         
