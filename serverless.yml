@@ -23,10 +23,17 @@ plugins:
     
 custom:
   splitStacks:
-    perFunction: false
-    perType: true
-    perGroupFunction: false
-    
+    perFunction: false  # Do not create one stack per function
+    perType: false  # Do not group by type
+    rules:
+      - match: "AWS::Lambda::Function"
+        stack: "lambda-stack-0"  # All 9 functions go into this one stack for now
+      - match: "AWS::ApiGateway::Resource"
+        stack: "api-stack"
+      - match: "AWS::IAM::Role"
+        stack: "iam-stack"
+      - match: "AWS::Logs::LogGroup"
+        stack: "logs-stack"
         
 functions:
   function1:
@@ -36,7 +43,61 @@ functions:
           path: function1
           method: get
 
- 
+ function2:
+    handler: handler.function2
+    events:
+      - http:
+          path: function2
+          method: post
+
+  function3:
+    handler: handler.function3
+    events:
+      - http:
+          path: function3
+          method: get
+
+  function4:
+    handler: handler.function4
+    events:
+      - http:
+          path: function4
+          method: post
+
+  function5:
+    handler: handler.function5
+    events:
+      - http:
+          path: function5
+          method: get
+
+  function6:
+    handler: handler.function6
+    events:
+      - http:
+          path: function6
+          method: post
+
+  function7:
+    handler: handler.function7
+    events:
+      - http:
+          path: function7
+          method: get
+
+  function8:
+    handler: handler.function8
+    events:
+      - http:
+          path: function8
+          method: post
+
+  function9:
+    handler: handler.function9
+    events:
+      - http:
+          path: function9
+          method: get
  
  
                    
