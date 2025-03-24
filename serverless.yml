@@ -25,7 +25,7 @@ custom:
   splitStacks:
     stackConcurrency: 5 
     resourceConcurrency: 10
-    perFunction: false
+    perFunction: true
     perType: true
     perGroupFunction: false
                
