@@ -25,6 +25,7 @@ custom:
   splitStacks:
     perFunction: true
     perType: true
+    perGroupFunction: true
     
         
 functions:
