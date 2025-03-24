@@ -102,13 +102,7 @@ functions:
           path: function9
           method: get
 
-  function10:
-    handler: handler.function10
-    events:
-      - http:
-          path: function10
-          method: post
-
+ 
  
 
   
