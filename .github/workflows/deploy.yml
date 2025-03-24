@@ -1,36 +1,45 @@
-name: Deploy Serverless App
+name: Deploy Serverless
 
 on:
   push:
     branches:
-      - main  # Deploy only on push to main branch
+      - main  # Change to your deployment branch
+
 jobs:
   deploy:
-    name: Deploy
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
+
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18  # Adjust according to your project
+          cache: 'yarn'  # Cache dependencies for faster builds
 
-    - run: yarn install
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v2
-      with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+      - name: Install Yarn
+        run: npm install -g yarn  # Ensure Yarn is installed globally
 
-    - name: Deploy to AWS
-      run: yarn serverless deploy
-      env:
-         SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+      - name: Install Serverless Framework Locally
+        run: yarn add serverless --dev  # Install Serverless as a dev dependency
+
+      - name: Verify Serverless Installation
+        run: npx serverless --version  # Ensure Serverless is installed
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile  # Install all project dependencies
+
+      - name: Install serverless-split-stack Plugin
+        run: yarn add serverless-split-stack --dev  # Install the plugin using Yarn
+
+      - name: Deploy with Serverless Framework
+        run: npx serverless deploy  # Use npx to run Serverless
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
 
 
         
