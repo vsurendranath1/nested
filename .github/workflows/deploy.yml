@@ -28,7 +28,7 @@ jobs:
         run: npm install -g yarn  # Install Yarn globally
         
       - name: Install serverless-split-stack Plugin
-        run: yarn add serverless-split-stack --dev  # Install the plugin using Yarn
+        run: npm install serverless-split-stack --save-dev
               
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
