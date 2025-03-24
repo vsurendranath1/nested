@@ -42,8 +42,7 @@ functions:
       - http:
           path: function1
           method: get
-
- function2:
+  function2:
     handler: handler.function2
     events:
       - http:
