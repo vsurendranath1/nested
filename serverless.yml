@@ -23,6 +23,7 @@ plugins:
     
 custom:
   splitStacks:
+    nestedStackCount: 10 
     stackConcurrency: 5 
     resourceConcurrency: 10
     perFunction: false
