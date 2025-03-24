@@ -31,14 +31,13 @@ custom:
       Stack2: 
         - function2
         - function6
-        - function11
+       
       Stack3: 
         - function3
         - function4
         - function7
         - function8
-        - function10
-        - function12
+        
 functions:
   function1:
     handler: handler.function1
@@ -102,28 +101,8 @@ functions:
       - http:
           path: function9
           method: get
-
  
- function10:
-    handler: handler.function10
-    events:
-      - http:
-          path: function10
-          method: post
-          
-function11:
-    handler: handler.function11
-    events:
-      - http:
-          path: function11
-          method: get
-
- function12:
-    handler: handler.function12
-    events:
-      - http:
-          path: function12
-          method: post
+ 
                    
           
   
