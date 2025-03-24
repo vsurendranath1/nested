@@ -3,13 +3,13 @@ org: surendra123
 # "app" enables Serverless Framework Dashboard features and sharing them with other Services.
 app: nestedstacks
 # "service" is the name of this project. This will also be added to your AWS resource names.
-service: stack1-dev1
+service: apple1-dev1
 
 provider:
   name: aws
   runtime: nodejs18.x
   region: us-east-1
-  stackName: stack1-dev
+  stackName: apple1-dev
   memorySize: 128
   timeout: 10
   iamRoleStatements:
