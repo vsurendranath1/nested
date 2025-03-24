@@ -19,6 +19,7 @@ provider:
       Resource: "*"
 plugins:
   - serverless-offline
+  - serverless-plugin-split-stacks
     
 custom:
   splitStacks:
@@ -103,8 +104,28 @@ functions:
           method: get
 
  
- 
+ function10:
+    handler: handler.function10
+    events:
+      - http:
+          path: function10
+          method: post
+          
+function11:
+    handler: handler.function11
+    events:
+      - http:
+          path: function11
+          method: get
 
+ function12:
+    handler: handler.function12
+    events:
+      - http:
+          path: function12
+          method: post
+                   
+          
   
 
 
