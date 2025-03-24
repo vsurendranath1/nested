@@ -116,12 +116,6 @@ functions:
           path: function11
           method: get
 
-  function12:
-    handler: handler.function12
-    events:
-      - http:
-          path: function12
-          method: post
-
+  
 
 
