@@ -30,10 +30,7 @@ jobs:
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile  # Install all project dependencies
-
-      - name: Install serverless-split-stack Plugin
-        run: yarn add serverless-split-stack --dev  # Install the plugin using Yarn
-
+     
       - name: Deploy with Serverless Framework
         run: npx serverless deploy  # Use npx to run Serverless
         env:
