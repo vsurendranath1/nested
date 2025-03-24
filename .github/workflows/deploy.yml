@@ -20,7 +20,7 @@ jobs:
           cache: 'yarn'  # Cache dependencies for faster builds
 
       - name: Install Yarn
-        run: npm install -g yarn  # Ensure Yarn is installed globally
+        run: yarn install  # Ensure Yarn is installed globally
 
       - name: Install Serverless Framework Locally
         run: yarn add serverless --dev  # Install Serverless as a dev dependency
