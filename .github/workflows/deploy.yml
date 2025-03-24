@@ -1,9 +1,9 @@
-name: Deploy Serverless
+name: Deploy Serverless App
 
 on:
   push:
     branches:
-      - main  # Change to your deployment branch
+      - main  # Deploy only on push to main branch
 
 jobs:
   deploy:
@@ -11,35 +11,29 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18  # Adjust according to your project
-          cache: 'yarn'  # Cache dependencies for faster builds
+          node-version: 18
 
-      - name: Install Yarn
-        run: yarn install  # Ensure Yarn is installed globally
-
-      - name: Install Serverless Framework Locally
-        run: yarn add serverless --dev  # Install Serverless as a dev dependency
-
-      - name: Verify Serverless Installation
-        run: npx serverless --version  # Ensure Serverless is installed
+      - name: Install Serverless Framework
+        run: npm install -g serverless
 
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile  # Install all project dependencies
-     
-      - name: Deploy with Serverless Framework
-        run: npx serverless deploy  # Use npx to run Serverless
+        run: npm install
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+          
+      - name: Deploy to AWS
+        run: serverless deploy
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+         SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
 
-
-        
-              
-
-
+     
