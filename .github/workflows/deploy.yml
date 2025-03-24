@@ -23,7 +23,11 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-
+        
+      - name: Install Yarn
+        run: npm install -g yarn  # Install Yarn globally
+         
+        
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
