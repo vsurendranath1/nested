@@ -23,12 +23,12 @@ plugins:
     
 custom:
   splitStacks:
+   stackConcurrency: 5 
+   resourceConcurrency: 10
     perFunction: false
-    perType: false
-    perGroupFunction: true
-    stackConcurrency: 5 
-    resourceConcurrency: 10
-        
+    perType: true
+    perGroupFunction: false
+               
 functions:
   function1:
     handler: handler.function1
