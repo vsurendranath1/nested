@@ -24,8 +24,8 @@ plugins:
 custom:
   splitStacks:
     perFunction: false  
-    perType: false
-    perGroupFunction: true
+    perType: true
+    perGroupFunction: false
     nestedStackCount: 10
         
 functions:
