@@ -1,6 +1,6 @@
 const stacksMap = require('serverless-plugin-split-stacks').stacksMap;
 
-module.exports = (resource, logicalId) => {
+module.exports = (resources, logicalId) => {
   const results = {};
 
   for (const logicalId in resources) {
