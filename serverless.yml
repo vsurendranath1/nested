@@ -24,7 +24,7 @@ plugins:
 custom:
   splitStacks:
     perFunction: false
-    perType: false
+    perType: true
     perGroupFunction: false
     crossStackReferences: true
     splitsStackPatterns:
