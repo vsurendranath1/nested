@@ -25,7 +25,7 @@ custom:
   splitStacks:
     perFunction: false
     perType: false
-    perGroupFunction: true
+    perGroupFunction: false
     crossStackReferences: true
     splitsStackPatterns:
      - "*-Lambda"
