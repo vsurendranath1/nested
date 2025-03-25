@@ -18,21 +18,15 @@ provider:
         - lambda:InvokeFunction
       Resource: "*"
 plugins:
-  - serverless-split-stacks
-  - serverless-offline
-  - serverless-plugin-split-stacks
+   - serverless-offline
+   - serverless-plugin-split-stacks
     
 custom:
   splitStacks:
-    perFunction: false
-    perType: true
+    perFunction: true
+    perType: false
     perGroupFunction: false
-    crossStackReferences: true
-    splitsStackPatterns:
-     - "*-Lambda"
-     - "*-ApiGateway"
-     - "*-ServerlessDeployment"
-               
+                   
 functions:
   function1:
     handler: handler.function1
