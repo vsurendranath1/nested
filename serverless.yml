@@ -24,8 +24,9 @@ plugins:
 custom:
   splitStacks:
     perFunction: false
-    perType: true
-    perGroupFunction: false
+    perType: false
+    perGroupFunction: true
+    crossStackReferences: true
     splitsStackPatterns:
      - "*-Lambda"
      - "*-ApiGateway"
