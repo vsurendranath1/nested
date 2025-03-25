@@ -23,8 +23,8 @@ plugins:
     
 custom:
   splitStacks:
-    perFunction: true
-    perType: false
+    perFunction: false
+    perType: true
     perGroupFunction: false
                    
 functions:
