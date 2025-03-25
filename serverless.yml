@@ -18,6 +18,7 @@ provider:
         - lambda:InvokeFunction
       Resource: "*"
 plugins:
+  - serverless-split-stacks
   - serverless-offline
   - serverless-plugin-split-stacks
     
