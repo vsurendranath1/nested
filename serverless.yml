@@ -26,6 +26,10 @@ custom:
     perFunction: false
     perType: true
     perGroupFunction: false
+    splitsStackPatterns:
+     - "*-Lambda"
+     - "*-ApiGateway"
+     - "*-ServerlessDeployment"
                
 functions:
   function1:
