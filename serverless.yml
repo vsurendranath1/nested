@@ -26,6 +26,7 @@ custom:
     perFunction: false
     perType: true
     perGroupFunction: false
+    resourceConcurrency: 10
                    
 functions:
   function1:
