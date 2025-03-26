@@ -20,14 +20,7 @@ provider:
 plugins:
    - serverless-offline
    - serverless-plugin-split-stacks
-    
-custom:
-  splitStacks:
-    perFunction: false
-    perType: true
-    perGroupFunction: false
-    resourceConcurrency: 10
-                   
+                       
 functions:
   function1:
     handler: handler.function1
