@@ -2,7 +2,7 @@ const stacksMap = require('serverless-plugin-split-stacks').stacksMap;
 
 
 module.exports = (resource, logicalId) => {
-  if(logicalId.includes("ApiGatewayLogGroup")) return { destination:'APiGateway'};
+  if(logicalId.includes("ApiGateway")) return { destination:'APiGateway'};
   else if(logicalId.includes("Lambda")) return { destination:'Lambda'};
   return { destination: "other" };
   
