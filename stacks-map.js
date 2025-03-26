@@ -5,7 +5,7 @@ let counter = 0;
 module.exports = (resource, logicalId) => {
   const stacks = ["stackA", "stackB", "stackC", "stackD", "stackE"];
   
-  if (!logicalId) {
+  if (logicalId) {
     return { destination: "OtherStack" }; // Handle missing logicalId
   }
 
