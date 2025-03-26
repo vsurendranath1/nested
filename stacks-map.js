@@ -3,14 +3,14 @@ const stacksMap = require('serverless-plugin-split-stacks').stacksMap;
 let counter = 0;
 
 module.exports = (resource, logicalId) => {
-  let stack;
-
-  if (logicalId) {
-    stack = counter % 2 === 0 ? "stackA" : "stackB"; // Distribute alternately
-    counter++; // Increment for next assignment
-  } else {
-    stack = "OtherStack"; // If logicalId is missing, assign to OtherStack
+  const stacks = ["stackA", "stackB", "stackC", "stackD", "stackE"];
+  
+  if (!logicalId) {
+    return { destination: "OtherStack" }; // Handle missing logicalId
   }
+
+  let stack = stacks[counter % stacks.length]; // Alternate between 5 stacks
+  counter++; // Increment counter for next resource
 
   return { destination: stack };
 };
