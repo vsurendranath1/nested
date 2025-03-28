@@ -3193,7 +3193,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bluebird@npm:^3.5.3":
+"bluebird@npm:^3.5.0, bluebird@npm:^3.5.3":
   version: 3.7.2
   resolution: "bluebird@npm:3.7.2"
   checksum: 10c0/680de03adc54ff925eaa6c7bb9a47a0690e8b5de60f4792604aae8ed618c65e6b63a7893b57ca924beaf53eee69c5af4f8314148c08124c550fe1df1add897d2
@@ -4184,6 +4184,13 @@ __metadata:
     node-domexception: "npm:^1.0.0"
     web-streams-polyfill: "npm:^3.0.3"
   checksum: 10c0/60054bf47bfa10fb0ba6cb7742acec2f37c1f56344f79a70bb8b1c48d77675927c720ff3191fa546410a0442c998d27ab05e9144c32d530d8a52fbe68f843b69
+  languageName: node
+  linkType: hard
+
+"filesize@npm:^3.5.10":
+  version: 3.6.1
+  resolution: "filesize@npm:3.6.1"
+  checksum: 10c0/7b900b488c914d4b9146ddaf2865c410687977cf62c627760ff3c47dce4a00a53523658f40c9023bba8894d2e4841bc913af280472c2bb5aec29bc342eb33b6f
   languageName: node
   linkType: hard
 
@@ -5797,6 +5804,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"serverless-nested-stack@npm:^0.0.7":
+  version: 0.0.7
+  resolution: "serverless-nested-stack@npm:0.0.7"
+  dependencies:
+    bluebird: "npm:^3.5.0"
+    filesize: "npm:^3.5.10"
+  checksum: 10c0/eb8a677dc50dcfb257d56093e4c946ac40dbee2bf3f2ef75573c7c1be0d794fea325e21f5670fe9f345c588039bd11599fe93dd800f1ead01c5c69d21116b24f
+  languageName: node
+  linkType: hard
+
 "serverless-offline@npm:^14.4.0":
   version: 14.4.0
   resolution: "serverless-offline@npm:14.4.0"
@@ -6070,6 +6087,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stack1@workspace:."
   dependencies:
+    serverless-nested-stack: "npm:^0.0.7"
     serverless-offline: "npm:^14.4.0"
     serverless-plugin-optimize: "npm:^4.2.1-rc.1"
     serverless-plugin-split-stacks: "npm:^1.14.0"
