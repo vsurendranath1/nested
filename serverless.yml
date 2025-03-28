@@ -19,9 +19,7 @@ provider:
       Resource: "*"
 plugins:
    - serverless-offline
-   - serverless-plugin-split-stacks
-                       
-functions:
+  functions:
   function1:
     handler: handler.function1
     events:
