@@ -19,7 +19,8 @@ provider:
       Resource: "*"
 plugins:
    - serverless-offline
-  functions:
+   
+functions:
   function1:
     handler: handler.function1
     events:
