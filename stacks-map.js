@@ -49,6 +49,10 @@ require('serverless-plugin-split-stacks').resolveMigration = (resource, logicalI
     'AWS::DynamoDB::Table': 'DynamoDBStack',
     'AWS::S3::Bucket': 'S3Stack'
   };
+  const destination = typeBasedStack[resource.Type] || null;
+
+  console.log(`Resource: ${logicalId}, Type: ${resource.Type}, Assigned Stack: ${destination}`);
+
 
   return typeBasedStack[resource.Type] ? { destination: typeBasedStack[resource.Type] } : null;
 };
