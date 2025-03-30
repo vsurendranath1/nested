@@ -23,8 +23,10 @@ plugins:
    
 custom:
   splitStacks:
-    nestedStackCount: 4 # Controls the number of created nested stacks
-    perGroupFunction: true 
+    perFunction: false
+    perType: true
+    perGroupFunction: false
+    nestedStackCount: 5 # Controls the number of created nested stacks
    
 functions:
   function1:
