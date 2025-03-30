@@ -19,20 +19,7 @@ provider:
       Resource: "*"
 plugins:
    - serverless-offline
-   - serverless-plugin-split-stacks
-custom:
-  splitStacks:
-    perFunction: false  # Disable per-function stacking
-    perType: true       # Enable per-resource-type stacking
-    Type:
-      - AWS::Lambda::Function
-      - AWS::ApiGateway::Method
-      - AWS::ApiGateway::Resource
-      - AWS::ApiGateway::RestApi
-      - AWS::IAM::Role
-      - AWS::Logs::LogGroup
-      - AWS::DynamoDB::Table  # If you use DynamoDB
-      - AWS::S3::Bucket       # If you use S3
+   
    
 functions:
   function1:
