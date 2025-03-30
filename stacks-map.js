@@ -1,6 +1,7 @@
 const stacksMap = require('serverless-plugin-split-stacks').stacksMap;
-module.exports = {
-  'AWS::ApiGateway::Method': { destination: 'Apimethod' }
-}
+module.exports = (resource, logicalId) => {
+  if (logicalId.startsWith("ApiGatewayMethod")) return { destination: 'ApiGatewayMethod' };
+  // Falls back to default
+};
 
       
