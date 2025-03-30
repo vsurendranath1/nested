@@ -21,9 +21,7 @@ plugins:
    - serverless-offline
    - serverless-plugin-split-stacks
    
-custom:
-  splitStacks:
-    stackMapping: stacks-map.js
+
 
 functions:
   function1:
