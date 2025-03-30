@@ -19,8 +19,11 @@ provider:
       Resource: "*"
 plugins:
    - serverless-offline
-   - serverless-nested-stack
+   - serverless-split-stack
    
+custom:
+  splitStacks:
+    stackMapping: stack-map.js
 
 functions:
   function1:
