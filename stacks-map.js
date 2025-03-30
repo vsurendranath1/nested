@@ -1,3 +1,4 @@
+const stacksMap = require('serverless-plugin-split-stacks').stacksMap;
 module.exports = {
   processResources(resources) {
     const stackNames = [
