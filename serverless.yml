@@ -23,7 +23,7 @@ plugins:
    
 custom:
   splitStacks:
-    perType: True   
+    splitterFunction: './splitter.js'  
    
 functions:
   function1:
