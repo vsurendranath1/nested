@@ -22,9 +22,6 @@ plugins:
    - serverless-plugin-split-stacks
    
    
-custom:
-  splitStacks:
-    migration: ./stack-map.js 
    
 functions:
   function1:
