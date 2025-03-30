@@ -19,7 +19,7 @@ provider:
       Resource: "*"
 plugins:
    - serverless-offline
-   - serverless-split-stacks
+   - serverless-plugin-split-stacks
    
 custom:
   splitStacks:
