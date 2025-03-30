@@ -21,10 +21,7 @@ plugins:
    - serverless-offline
    - serverless-nested-stack
    
-custom:
-  splitStacks:
-    custom: stacks-map.js # Tell the plugin to use stack-map.js
-   
+
 functions:
   function1:
     handler: handler.function1
