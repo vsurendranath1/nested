@@ -1,7 +1,9 @@
 const stacksMap = require('serverless-plugin-split-stacks').stacksMap;
-module.exports = (resource, logicalId) => {
-  if (logicalId.startsWith("ApiGateway")) return { destination: 'ApiGateway' };
-  // Falls back to default
+module.exports = (resource, Type) => {
+  if (Type === 'AAWS::ApiGateway::Resource') {
+    return { destination: 'Dynamodb' };
+  }
+  return null; // Default case if the resource type is not matched
 };
 
       
