@@ -21,7 +21,9 @@ plugins:
    - serverless-offline
    - serverless-plugin-split-stacks
    
-   
+custom:
+  splitStacks:
+    perFunction: True   
    
 functions:
   function1:
