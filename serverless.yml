@@ -23,7 +23,7 @@ plugins:
    
 custom:
   splitStacks:
-    perFunction: True   
+    perType: True   
    
 functions:
   function1:
