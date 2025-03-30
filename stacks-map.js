@@ -1,4 +1,3 @@
-'use strict';
 const stacksMap = require('serverless-plugin-split-stacks').stacksMap;
 const memoize = require('memoizee');
 const namingUtils = require('serverless/lib/plugins/aws/lib/naming');
