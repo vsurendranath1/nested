@@ -23,14 +23,7 @@ plugins:
    
 custom:
   splitStacks:
-    perType: true # Enables automatic splitting by resource type
-    perFunction: false # Keeps function-related resources in the main stack
-    mapping:
-      # Manually map resource types to separate stacks
-      AWS::ApiGateway::RestApi: ApiGatewayStack
-      AWS::Lambda::Permission: LambdaPermissionsStack
-      AWS::IAM::Role: IAMStack
-    
+    custom: stack-map.js # Tell the plugin to use stack-map.js
    
 functions:
   function1:
