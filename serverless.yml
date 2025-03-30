@@ -19,7 +19,7 @@ provider:
       Resource: "*"
 plugins:
    - serverless-offline
-   - serverless-nested-stack
+   
    
 functions:
   function1:
