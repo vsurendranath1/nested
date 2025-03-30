@@ -23,7 +23,8 @@ plugins:
    
 custom:
   splitStacks:
-    splitterFunction: './splitter.js'  
+    nestedStackCount: 4 # Controls the number of created nested stacks
+    perGroupFunction: true 
    
 functions:
   function1:
