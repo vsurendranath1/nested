@@ -27,6 +27,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["serverless-aws-nested-stacks", "npm:0.1.2"],\
           ["serverless-nested-stack", "npm:0.0.7"],\
           ["serverless-offline", "virtual:e68c957b8072b151d567acf343790bc45914d4c21071cdcca73ebb25be053234637e36809d83cf412c88edb32e738494d1772578a00f437eecec5418113d9e29#npm:14.4.0"],\
           ["serverless-plugin-optimize", "npm:4.2.1-rc.1"],\
@@ -109,23 +110,23 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@aws-sdk/client-lambda", [\
-      ["npm:3.772.0", {\
-        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-client-lambda-npm-3.772.0-b66ceb0151-10c0.zip/node_modules/@aws-sdk/client-lambda/",\
+      ["npm:3.771.0", {\
+        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-client-lambda-npm-3.771.0-e758781f6f-10c0.zip/node_modules/@aws-sdk/client-lambda/",\
         "packageDependencies": [\
-          ["@aws-sdk/client-lambda", "npm:3.772.0"],\
+          ["@aws-sdk/client-lambda", "npm:3.771.0"],\
           ["@aws-crypto/sha256-browser", "npm:5.2.0"],\
           ["@aws-crypto/sha256-js", "npm:5.2.0"],\
           ["@aws-sdk/core", "npm:3.758.0"],\
-          ["@aws-sdk/credential-provider-node", "npm:3.772.0"],\
+          ["@aws-sdk/credential-provider-node", "npm:3.758.0"],\
           ["@aws-sdk/middleware-host-header", "npm:3.734.0"],\
           ["@aws-sdk/middleware-logger", "npm:3.734.0"],\
-          ["@aws-sdk/middleware-recursion-detection", "npm:3.772.0"],\
+          ["@aws-sdk/middleware-recursion-detection", "npm:3.734.0"],\
           ["@aws-sdk/middleware-user-agent", "npm:3.758.0"],\
           ["@aws-sdk/region-config-resolver", "npm:3.734.0"],\
           ["@aws-sdk/types", "npm:3.734.0"],\
           ["@aws-sdk/util-endpoints", "npm:3.743.0"],\
           ["@aws-sdk/util-user-agent-browser", "npm:3.734.0"],\
-          ["@aws-sdk/util-user-agent-node", "virtual:c57c58effebd4e788568c0192e2ef92fb14caf63425a20b20a0e7dbc7b66c55d9c07e75a95b97ff7288b6f384c4e9843c65744ac2637b7464713f9a24b713a23#npm:3.758.0"],\
+          ["@aws-sdk/util-user-agent-node", "virtual:90f4b0e5f16d19fb405f63ae8fa0aa3254175f663fee007544f1339bc76f9b4628c13bc31e78e2446af6f18443fe8213ff412a195983f460ffb39923923e51fe#npm:3.758.0"],\
           ["@smithy/config-resolver", "npm:4.0.1"],\
           ["@smithy/core", "npm:3.1.5"],\
           ["@smithy/eventstream-serde-browser", "npm:4.0.1"],\
@@ -162,22 +163,22 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@aws-sdk/client-sso", [\
-      ["npm:3.772.0", {\
-        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-client-sso-npm-3.772.0-c57c58effe-10c0.zip/node_modules/@aws-sdk/client-sso/",\
+      ["npm:3.758.0", {\
+        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-client-sso-npm-3.758.0-90f4b0e5f1-10c0.zip/node_modules/@aws-sdk/client-sso/",\
         "packageDependencies": [\
-          ["@aws-sdk/client-sso", "npm:3.772.0"],\
+          ["@aws-sdk/client-sso", "npm:3.758.0"],\
           ["@aws-crypto/sha256-browser", "npm:5.2.0"],\
           ["@aws-crypto/sha256-js", "npm:5.2.0"],\
           ["@aws-sdk/core", "npm:3.758.0"],\
           ["@aws-sdk/middleware-host-header", "npm:3.734.0"],\
           ["@aws-sdk/middleware-logger", "npm:3.734.0"],\
-          ["@aws-sdk/middleware-recursion-detection", "npm:3.772.0"],\
+          ["@aws-sdk/middleware-recursion-detection", "npm:3.734.0"],\
           ["@aws-sdk/middleware-user-agent", "npm:3.758.0"],\
           ["@aws-sdk/region-config-resolver", "npm:3.734.0"],\
           ["@aws-sdk/types", "npm:3.734.0"],\
           ["@aws-sdk/util-endpoints", "npm:3.743.0"],\
           ["@aws-sdk/util-user-agent-browser", "npm:3.734.0"],\
-          ["@aws-sdk/util-user-agent-node", "virtual:c57c58effebd4e788568c0192e2ef92fb14caf63425a20b20a0e7dbc7b66c55d9c07e75a95b97ff7288b6f384c4e9843c65744ac2637b7464713f9a24b713a23#npm:3.758.0"],\
+          ["@aws-sdk/util-user-agent-node", "virtual:90f4b0e5f16d19fb405f63ae8fa0aa3254175f663fee007544f1339bc76f9b4628c13bc31e78e2446af6f18443fe8213ff412a195983f460ffb39923923e51fe#npm:3.758.0"],\
           ["@smithy/config-resolver", "npm:4.0.1"],\
           ["@smithy/core", "npm:3.1.5"],\
           ["@smithy/fetch-http-handler", "npm:5.0.1"],\
@@ -262,17 +263,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@aws-sdk/credential-provider-ini", [\
-      ["npm:3.772.0", {\
-        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-credential-provider-ini-npm-3.772.0-f31049cd37-10c0.zip/node_modules/@aws-sdk/credential-provider-ini/",\
+      ["npm:3.758.0", {\
+        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-credential-provider-ini-npm-3.758.0-498ba7fbef-10c0.zip/node_modules/@aws-sdk/credential-provider-ini/",\
         "packageDependencies": [\
-          ["@aws-sdk/credential-provider-ini", "npm:3.772.0"],\
+          ["@aws-sdk/credential-provider-ini", "npm:3.758.0"],\
           ["@aws-sdk/core", "npm:3.758.0"],\
           ["@aws-sdk/credential-provider-env", "npm:3.758.0"],\
           ["@aws-sdk/credential-provider-http", "npm:3.758.0"],\
           ["@aws-sdk/credential-provider-process", "npm:3.758.0"],\
-          ["@aws-sdk/credential-provider-sso", "npm:3.772.0"],\
-          ["@aws-sdk/credential-provider-web-identity", "npm:3.772.0"],\
-          ["@aws-sdk/nested-clients", "npm:3.772.0"],\
+          ["@aws-sdk/credential-provider-sso", "npm:3.758.0"],\
+          ["@aws-sdk/credential-provider-web-identity", "npm:3.758.0"],\
+          ["@aws-sdk/nested-clients", "npm:3.758.0"],\
           ["@aws-sdk/types", "npm:3.734.0"],\
           ["@smithy/credential-provider-imds", "npm:4.0.1"],\
           ["@smithy/property-provider", "npm:4.0.1"],\
@@ -284,16 +285,16 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@aws-sdk/credential-provider-node", [\
-      ["npm:3.772.0", {\
-        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-credential-provider-node-npm-3.772.0-d3f7568fb5-10c0.zip/node_modules/@aws-sdk/credential-provider-node/",\
+      ["npm:3.758.0", {\
+        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-credential-provider-node-npm-3.758.0-34d59eb220-10c0.zip/node_modules/@aws-sdk/credential-provider-node/",\
         "packageDependencies": [\
-          ["@aws-sdk/credential-provider-node", "npm:3.772.0"],\
+          ["@aws-sdk/credential-provider-node", "npm:3.758.0"],\
           ["@aws-sdk/credential-provider-env", "npm:3.758.0"],\
           ["@aws-sdk/credential-provider-http", "npm:3.758.0"],\
-          ["@aws-sdk/credential-provider-ini", "npm:3.772.0"],\
+          ["@aws-sdk/credential-provider-ini", "npm:3.758.0"],\
           ["@aws-sdk/credential-provider-process", "npm:3.758.0"],\
-          ["@aws-sdk/credential-provider-sso", "npm:3.772.0"],\
-          ["@aws-sdk/credential-provider-web-identity", "npm:3.772.0"],\
+          ["@aws-sdk/credential-provider-sso", "npm:3.758.0"],\
+          ["@aws-sdk/credential-provider-web-identity", "npm:3.758.0"],\
           ["@aws-sdk/types", "npm:3.734.0"],\
           ["@smithy/credential-provider-imds", "npm:4.0.1"],\
           ["@smithy/property-provider", "npm:4.0.1"],\
@@ -320,13 +321,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@aws-sdk/credential-provider-sso", [\
-      ["npm:3.772.0", {\
-        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-credential-provider-sso-npm-3.772.0-9e9b1afd48-10c0.zip/node_modules/@aws-sdk/credential-provider-sso/",\
+      ["npm:3.758.0", {\
+        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-credential-provider-sso-npm-3.758.0-6022b871a0-10c0.zip/node_modules/@aws-sdk/credential-provider-sso/",\
         "packageDependencies": [\
-          ["@aws-sdk/credential-provider-sso", "npm:3.772.0"],\
-          ["@aws-sdk/client-sso", "npm:3.772.0"],\
+          ["@aws-sdk/credential-provider-sso", "npm:3.758.0"],\
+          ["@aws-sdk/client-sso", "npm:3.758.0"],\
           ["@aws-sdk/core", "npm:3.758.0"],\
-          ["@aws-sdk/token-providers", "npm:3.772.0"],\
+          ["@aws-sdk/token-providers", "npm:3.758.0"],\
           ["@aws-sdk/types", "npm:3.734.0"],\
           ["@smithy/property-provider", "npm:4.0.1"],\
           ["@smithy/shared-ini-file-loader", "npm:4.0.1"],\
@@ -337,12 +338,12 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@aws-sdk/credential-provider-web-identity", [\
-      ["npm:3.772.0", {\
-        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-credential-provider-web-identity-npm-3.772.0-7ea8c7f13c-10c0.zip/node_modules/@aws-sdk/credential-provider-web-identity/",\
+      ["npm:3.758.0", {\
+        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-credential-provider-web-identity-npm-3.758.0-36804e7f90-10c0.zip/node_modules/@aws-sdk/credential-provider-web-identity/",\
         "packageDependencies": [\
-          ["@aws-sdk/credential-provider-web-identity", "npm:3.772.0"],\
+          ["@aws-sdk/credential-provider-web-identity", "npm:3.758.0"],\
           ["@aws-sdk/core", "npm:3.758.0"],\
-          ["@aws-sdk/nested-clients", "npm:3.772.0"],\
+          ["@aws-sdk/nested-clients", "npm:3.758.0"],\
           ["@aws-sdk/types", "npm:3.734.0"],\
           ["@smithy/property-provider", "npm:4.0.1"],\
           ["@smithy/types", "npm:4.1.0"],\
@@ -377,10 +378,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@aws-sdk/middleware-recursion-detection", [\
-      ["npm:3.772.0", {\
-        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-middleware-recursion-detection-npm-3.772.0-7d3f83b20a-10c0.zip/node_modules/@aws-sdk/middleware-recursion-detection/",\
+      ["npm:3.734.0", {\
+        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-middleware-recursion-detection-npm-3.734.0-5d8fc92259-10c0.zip/node_modules/@aws-sdk/middleware-recursion-detection/",\
         "packageDependencies": [\
-          ["@aws-sdk/middleware-recursion-detection", "npm:3.772.0"],\
+          ["@aws-sdk/middleware-recursion-detection", "npm:3.734.0"],\
           ["@aws-sdk/types", "npm:3.734.0"],\
           ["@smithy/protocol-http", "npm:5.0.1"],\
           ["@smithy/types", "npm:4.1.0"],\
@@ -406,22 +407,22 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@aws-sdk/nested-clients", [\
-      ["npm:3.772.0", {\
-        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-nested-clients-npm-3.772.0-30558b4185-10c0.zip/node_modules/@aws-sdk/nested-clients/",\
+      ["npm:3.758.0", {\
+        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-nested-clients-npm-3.758.0-ef63f60040-10c0.zip/node_modules/@aws-sdk/nested-clients/",\
         "packageDependencies": [\
-          ["@aws-sdk/nested-clients", "npm:3.772.0"],\
+          ["@aws-sdk/nested-clients", "npm:3.758.0"],\
           ["@aws-crypto/sha256-browser", "npm:5.2.0"],\
           ["@aws-crypto/sha256-js", "npm:5.2.0"],\
           ["@aws-sdk/core", "npm:3.758.0"],\
           ["@aws-sdk/middleware-host-header", "npm:3.734.0"],\
           ["@aws-sdk/middleware-logger", "npm:3.734.0"],\
-          ["@aws-sdk/middleware-recursion-detection", "npm:3.772.0"],\
+          ["@aws-sdk/middleware-recursion-detection", "npm:3.734.0"],\
           ["@aws-sdk/middleware-user-agent", "npm:3.758.0"],\
           ["@aws-sdk/region-config-resolver", "npm:3.734.0"],\
           ["@aws-sdk/types", "npm:3.734.0"],\
           ["@aws-sdk/util-endpoints", "npm:3.743.0"],\
           ["@aws-sdk/util-user-agent-browser", "npm:3.734.0"],\
-          ["@aws-sdk/util-user-agent-node", "virtual:c57c58effebd4e788568c0192e2ef92fb14caf63425a20b20a0e7dbc7b66c55d9c07e75a95b97ff7288b6f384c4e9843c65744ac2637b7464713f9a24b713a23#npm:3.758.0"],\
+          ["@aws-sdk/util-user-agent-node", "virtual:90f4b0e5f16d19fb405f63ae8fa0aa3254175f663fee007544f1339bc76f9b4628c13bc31e78e2446af6f18443fe8213ff412a195983f460ffb39923923e51fe#npm:3.758.0"],\
           ["@smithy/config-resolver", "npm:4.0.1"],\
           ["@smithy/core", "npm:3.1.5"],\
           ["@smithy/fetch-http-handler", "npm:5.0.1"],\
@@ -468,11 +469,11 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@aws-sdk/token-providers", [\
-      ["npm:3.772.0", {\
-        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-token-providers-npm-3.772.0-b60cc034ae-10c0.zip/node_modules/@aws-sdk/token-providers/",\
+      ["npm:3.758.0", {\
+        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-token-providers-npm-3.758.0-bc879fa3e9-10c0.zip/node_modules/@aws-sdk/token-providers/",\
         "packageDependencies": [\
-          ["@aws-sdk/token-providers", "npm:3.772.0"],\
-          ["@aws-sdk/nested-clients", "npm:3.772.0"],\
+          ["@aws-sdk/token-providers", "npm:3.758.0"],\
+          ["@aws-sdk/nested-clients", "npm:3.758.0"],\
           ["@aws-sdk/types", "npm:3.734.0"],\
           ["@smithy/property-provider", "npm:4.0.1"],\
           ["@smithy/shared-ini-file-loader", "npm:4.0.1"],\
@@ -537,10 +538,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:c57c58effebd4e788568c0192e2ef92fb14caf63425a20b20a0e7dbc7b66c55d9c07e75a95b97ff7288b6f384c4e9843c65744ac2637b7464713f9a24b713a23#npm:3.758.0", {\
-        "packageLocation": "./.yarn/__virtual__/@aws-sdk-util-user-agent-node-virtual-3815d34c59/3/C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-util-user-agent-node-npm-3.758.0-7819b8f06c-10c0.zip/node_modules/@aws-sdk/util-user-agent-node/",\
+      ["virtual:90f4b0e5f16d19fb405f63ae8fa0aa3254175f663fee007544f1339bc76f9b4628c13bc31e78e2446af6f18443fe8213ff412a195983f460ffb39923923e51fe#npm:3.758.0", {\
+        "packageLocation": "./.yarn/__virtual__/@aws-sdk-util-user-agent-node-virtual-74c1725dff/3/C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/@aws-sdk-util-user-agent-node-npm-3.758.0-7819b8f06c-10c0.zip/node_modules/@aws-sdk/util-user-agent-node/",\
         "packageDependencies": [\
-          ["@aws-sdk/util-user-agent-node", "virtual:c57c58effebd4e788568c0192e2ef92fb14caf63425a20b20a0e7dbc7b66c55d9c07e75a95b97ff7288b6f384c4e9843c65744ac2637b7464713f9a24b713a23#npm:3.758.0"],\
+          ["@aws-sdk/util-user-agent-node", "virtual:90f4b0e5f16d19fb405f63ae8fa0aa3254175f663fee007544f1339bc76f9b4628c13bc31e78e2446af6f18443fe8213ff412a195983f460ffb39923923e51fe#npm:3.758.0"],\
           ["@aws-sdk/middleware-user-agent", "npm:3.758.0"],\
           ["@aws-sdk/types", "npm:3.734.0"],\
           ["@smithy/node-config-provider", "npm:4.0.1"],\
@@ -2901,7 +2902,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@hapi/mimos", "npm:7.0.1"],\
           ["@hapi/hoek", "npm:11.0.7"],\
-          ["mime-db", "npm:1.54.0"]\
+          ["mime-db", "npm:1.52.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4474,7 +4475,7 @@ const RAW_RUNTIME_STATE =
           ["JSONStream", "npm:1.3.5"],\
           ["combine-source-map", "npm:0.8.0"],\
           ["defined", "npm:1.0.1"],\
-          ["safe-buffer", "npm:5.2.1"],\
+          ["safe-buffer", "npm:5.1.2"],\
           ["through2", "npm:2.0.5"],\
           ["umd", "npm:3.0.3"]\
         ],\
@@ -4534,7 +4535,7 @@ const RAW_RUNTIME_STATE =
           ["shell-quote", "npm:1.8.2"],\
           ["stream-browserify", "npm:2.0.2"],\
           ["stream-http", "npm:3.2.0"],\
-          ["string_decoder", "npm:1.3.0"],\
+          ["string_decoder", "npm:1.1.1"],\
           ["subarg", "npm:1.0.0"],\
           ["syntax-error", "npm:1.4.0"],\
           ["through2", "npm:2.0.5"],\
@@ -4558,7 +4559,7 @@ const RAW_RUNTIME_STATE =
           ["create-hash", "npm:1.2.0"],\
           ["evp_bytestokey", "npm:1.0.3"],\
           ["inherits", "npm:2.0.4"],\
-          ["safe-buffer", "npm:5.2.1"]\
+          ["safe-buffer", "npm:5.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4583,7 +4584,7 @@ const RAW_RUNTIME_STATE =
           ["cipher-base", "npm:1.0.6"],\
           ["des.js", "npm:1.1.0"],\
           ["inherits", "npm:2.0.4"],\
-          ["safe-buffer", "npm:5.2.1"]\
+          ["safe-buffer", "npm:5.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4635,7 +4636,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["browserslist", "npm:4.24.4"],\
           ["caniuse-lite", "npm:1.0.30001706"],\
-          ["electron-to-chromium", "npm:1.5.123"],\
+          ["electron-to-chromium", "npm:1.5.122"],\
           ["node-releases", "npm:2.0.19"],\
           ["update-browserslist-db", "virtual:2fdeb5face9914bb5fd94c70f084d153c80d2f09e5aabee010e4220b248dc23fca8f73c7beed0195e45ae6e2b1cb25388f709d7bfc4f00e473d573887faf4e5c#npm:1.1.3"]\
         ],\
@@ -4942,7 +4943,7 @@ const RAW_RUNTIME_STATE =
           ["create-hash", "npm:1.2.0"],\
           ["inherits", "npm:2.0.4"],\
           ["ripemd160", "npm:2.0.2"],\
-          ["safe-buffer", "npm:5.2.1"],\
+          ["safe-buffer", "npm:5.1.2"],\
           ["sha.js", "npm:2.4.11"]\
         ],\
         "linkType": "HARD"\
@@ -5182,10 +5183,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["electron-to-chromium", [\
-      ["npm:1.5.123", {\
-        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/electron-to-chromium-npm-1.5.123-00c3eb10c8-10c0.zip/node_modules/electron-to-chromium/",\
+      ["npm:1.5.122", {\
+        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/electron-to-chromium-npm-1.5.122-5e1bc0e6b1-10c0.zip/node_modules/electron-to-chromium/",\
         "packageDependencies": [\
-          ["electron-to-chromium", "npm:1.5.123"]\
+          ["electron-to-chromium", "npm:1.5.122"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5377,7 +5378,7 @@ const RAW_RUNTIME_STATE =
           ["evp_bytestokey", "npm:1.0.3"],\
           ["md5.js", "npm:1.3.5"],\
           ["node-gyp", "npm:11.1.0"],\
-          ["safe-buffer", "npm:5.2.1"]\
+          ["safe-buffer", "npm:5.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5697,16 +5698,6 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["hash-base", "npm:3.0.5"],\
           ["inherits", "npm:2.0.4"],\
-          ["safe-buffer", "npm:5.2.1"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/hash-base-npm-3.1.0-26fc5711dd-10c0.zip/node_modules/hash-base/",\
-        "packageDependencies": [\
-          ["hash-base", "npm:3.1.0"],\
-          ["inherits", "npm:2.0.4"],\
-          ["readable-stream", "npm:3.6.2"],\
           ["safe-buffer", "npm:5.2.1"]\
         ],\
         "linkType": "HARD"\
@@ -6302,9 +6293,9 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/md5.js-npm-1.3.5-130901125a-10c0.zip/node_modules/md5.js/",\
         "packageDependencies": [\
           ["md5.js", "npm:1.3.5"],\
-          ["hash-base", "npm:3.1.0"],\
+          ["hash-base", "npm:3.0.5"],\
           ["inherits", "npm:2.0.4"],\
-          ["safe-buffer", "npm:5.2.1"]\
+          ["safe-buffer", "npm:5.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6330,10 +6321,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["mime-db", [\
-      ["npm:1.54.0", {\
-        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/mime-db-npm-1.54.0-82cccb9d70-10c0.zip/node_modules/mime-db/",\
+      ["npm:1.52.0", {\
+        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/mime-db-npm-1.52.0-b5371d6fd2-10c0.zip/node_modules/mime-db/",\
         "packageDependencies": [\
-          ["mime-db", "npm:1.54.0"]\
+          ["mime-db", "npm:1.52.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6859,7 +6850,7 @@ const RAW_RUNTIME_STATE =
           ["create-hash", "npm:1.2.0"],\
           ["create-hmac", "npm:1.1.7"],\
           ["ripemd160", "npm:2.0.2"],\
-          ["safe-buffer", "npm:5.2.1"],\
+          ["safe-buffer", "npm:5.1.2"],\
           ["sha.js", "npm:2.4.11"]\
         ],\
         "linkType": "HARD"\
@@ -6957,7 +6948,7 @@ const RAW_RUNTIME_STATE =
           ["create-hash", "npm:1.2.0"],\
           ["parse-asn1", "npm:5.1.7"],\
           ["randombytes", "npm:2.1.0"],\
-          ["safe-buffer", "npm:5.2.1"]\
+          ["safe-buffer", "npm:5.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6995,7 +6986,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/randombytes-npm-2.1.0-e3da76bccf-10c0.zip/node_modules/randombytes/",\
         "packageDependencies": [\
           ["randombytes", "npm:2.1.0"],\
-          ["safe-buffer", "npm:5.2.1"]\
+          ["safe-buffer", "npm:5.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7006,7 +6997,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["randomfill", "npm:1.0.4"],\
           ["randombytes", "npm:2.1.0"],\
-          ["safe-buffer", "npm:5.2.1"]\
+          ["safe-buffer", "npm:5.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7041,7 +7032,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["readable-stream", "npm:3.6.2"],\
           ["inherits", "npm:2.0.4"],\
-          ["string_decoder", "npm:1.3.0"],\
+          ["string_decoder", "npm:1.1.1"],\
           ["util-deprecate", "npm:1.0.2"]\
         ],\
         "linkType": "HARD"\
@@ -7173,7 +7164,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/ripemd160-npm-2.0.2-7b1fb8dc76-10c0.zip/node_modules/ripemd160/",\
         "packageDependencies": [\
           ["ripemd160", "npm:2.0.2"],\
-          ["hash-base", "npm:3.1.0"],\
+          ["hash-base", "npm:3.0.5"],\
           ["inherits", "npm:2.0.4"]\
         ],\
         "linkType": "HARD"\
@@ -7220,6 +7211,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["serverless-aws-nested-stacks", [\
+      ["npm:0.1.2", {\
+        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/serverless-aws-nested-stacks-npm-0.1.2-fa0b52b655-10c0.zip/node_modules/serverless-aws-nested-stacks/",\
+        "packageDependencies": [\
+          ["serverless-aws-nested-stacks", "npm:0.1.2"],\
+          ["bluebird", "npm:3.7.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["serverless-nested-stack", [\
       ["npm:0.0.7", {\
         "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/serverless-nested-stack-npm-0.0.7-5d8b6081df-10c0.zip/node_modules/serverless-nested-stack/",\
@@ -7243,7 +7244,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/serverless-offline-virtual-539038bc4e/3/C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/serverless-offline-npm-14.4.0-e8ca56df4e-10c0.zip/node_modules/serverless-offline/",\
         "packageDependencies": [\
           ["serverless-offline", "virtual:e68c957b8072b151d567acf343790bc45914d4c21071cdcca73ebb25be053234637e36809d83cf412c88edb32e738494d1772578a00f437eecec5418113d9e29#npm:14.4.0"],\
-          ["@aws-sdk/client-lambda", "npm:3.772.0"],\
+          ["@aws-sdk/client-lambda", "npm:3.771.0"],\
           ["@hapi/boom", "npm:10.0.1"],\
           ["@hapi/h2o2", "npm:10.0.4"],\
           ["@hapi/hapi", "npm:21.4.0"],\
@@ -7353,7 +7354,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["sha.js", "npm:2.4.11"],\
           ["inherits", "npm:2.0.4"],\
-          ["safe-buffer", "npm:5.2.1"]\
+          ["safe-buffer", "npm:5.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7558,6 +7559,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["stack1", "workspace:."],\
+          ["serverless-aws-nested-stacks", "npm:0.1.2"],\
           ["serverless-nested-stack", "npm:0.0.7"],\
           ["serverless-offline", "virtual:e68c957b8072b151d567acf343790bc45914d4c21071cdcca73ebb25be053234637e36809d83cf412c88edb32e738494d1772578a00f437eecec5418113d9e29#npm:14.4.0"],\
           ["serverless-plugin-optimize", "npm:4.2.1-rc.1"],\
@@ -7640,14 +7642,6 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["string_decoder", "npm:1.1.1"],\
           ["safe-buffer", "npm:5.1.2"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:1.3.0", {\
-        "packageLocation": "../../C:/Users/LENOVO/AppData/Local/Yarn/Berry/cache/string_decoder-npm-1.3.0-2422117fd0-10c0.zip/node_modules/string_decoder/",\
-        "packageDependencies": [\
-          ["string_decoder", "npm:1.3.0"],\
-          ["safe-buffer", "npm:5.2.1"]\
         ],\
         "linkType": "HARD"\
       }]\
