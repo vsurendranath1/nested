@@ -1,5 +1,9 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
+  MyNestedStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      StackName: FunctionsStack1
   Function1:
     Type: AWS::Lambda::Function
     Properties:
