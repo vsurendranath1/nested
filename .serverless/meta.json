@@ -1,12 +1,12 @@
 {
-  "F:\\test\\serverless.yml": {
+  "F:\\aws-123\\serverless.yml": {
     "versionFramework": "4.9.1",
-    "servicePath": "F:\\test\\serverless.yml",
+    "servicePath": "F:\\aws-123\\serverless.yml",
     "serviceConfigFileName": "serverless.yml",
     "service": {
       "org": "surendra123",
       "app": "nestedstacks",
-      "service": "stack1-dev1",
+      "service": "stack1-dev",
       "provider": {
         "name": "aws",
         "runtime": "nodejs18.x",
@@ -29,127 +29,58 @@
           "AWSTemplateFormatVersion": "2010-09-09",
           "Description": "The AWS CloudFormation template for this Serverless application",
           "Resources": {
-            "ServerlessDeploymentBucket": {
-              "Type": "AWS::S3::Bucket",
-              "Properties": {
-                "BucketEncryption": {
-                  "ServerSideEncryptionConfiguration": [
-                    {
-                      "ServerSideEncryptionByDefault": {
-                        "SSEAlgorithm": "AES256"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            "ServerlessDeploymentBucketPolicy": {
-              "Type": "AWS::S3::BucketPolicy",
-              "Properties": {
-                "Bucket": {
-                  "Ref": "ServerlessDeploymentBucket"
-                },
-                "PolicyDocument": {
-                  "Statement": [
-                    {
-                      "Action": "s3:*",
-                      "Effect": "Deny",
-                      "Principal": "*",
-                      "Resource": [
-                        {
-                          "Fn::Join": [
-                            "",
-                            [
-                              "arn:",
-                              {
-                                "Ref": "AWS::Partition"
-                              },
-                              ":s3:::",
-                              {
-                                "Ref": "ServerlessDeploymentBucket"
-                              },
-                              "/*"
-                            ]
-                          ]
-                        },
-                        {
-                          "Fn::Join": [
-                            "",
-                            [
-                              "arn:",
-                              {
-                                "Ref": "AWS::Partition"
-                              },
-                              ":s3:::",
-                              {
-                                "Ref": "ServerlessDeploymentBucket"
-                              }
-                            ]
-                          ]
-                        }
-                      ],
-                      "Condition": {
-                        "Bool": {
-                          "aws:SecureTransport": false
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            },
             "Function1LogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/stack1-dev1-dev-function1"
+                "LogGroupName": "/aws/lambda/stack1-dev-dev-function1"
               }
             },
             "Function2LogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/stack1-dev1-dev-function2"
+                "LogGroupName": "/aws/lambda/stack1-dev-dev-function2"
               }
             },
             "Function3LogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/stack1-dev1-dev-function3"
+                "LogGroupName": "/aws/lambda/stack1-dev-dev-function3"
               }
             },
             "Function4LogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/stack1-dev1-dev-function4"
+                "LogGroupName": "/aws/lambda/stack1-dev-dev-function4"
               }
             },
             "Function5LogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/stack1-dev1-dev-function5"
+                "LogGroupName": "/aws/lambda/stack1-dev-dev-function5"
               }
             },
             "Function6LogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/stack1-dev1-dev-function6"
+                "LogGroupName": "/aws/lambda/stack1-dev-dev-function6"
               }
             },
             "Function7LogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/stack1-dev1-dev-function7"
+                "LogGroupName": "/aws/lambda/stack1-dev-dev-function7"
               }
             },
             "Function8LogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/stack1-dev1-dev-function8"
+                "LogGroupName": "/aws/lambda/stack1-dev-dev-function8"
               }
             },
             "Function9LogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
-                "LogGroupName": "/aws/lambda/stack1-dev1-dev-function9"
+                "LogGroupName": "/aws/lambda/stack1-dev-dev-function9"
               }
             },
             "IamRoleLambdaExecution": {
@@ -177,7 +108,7 @@
                       "Fn::Join": [
                         "-",
                         [
-                          "stack1-dev1",
+                          "stack1-dev",
                           "dev",
                           "lambda"
                         ]
@@ -195,7 +126,7 @@
                           ],
                           "Resource": [
                             {
-                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/stack1-dev1-dev*:*"
+                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/stack1-dev-dev*:*"
                             }
                           ]
                         },
@@ -206,7 +137,7 @@
                           ],
                           "Resource": [
                             {
-                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/stack1-dev1-dev*:*:*"
+                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/stack1-dev-dev*:*:*"
                             }
                           ]
                         },
@@ -226,7 +157,7 @@
                   "Fn::Join": [
                     "-",
                     [
-                      "stack1-dev1",
+                      "stack1-dev",
                       "dev",
                       {
                         "Ref": "AWS::Region"
@@ -241,14 +172,12 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": {
-                    "Ref": "ServerlessDeploymentBucket"
-                  },
-                  "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                  "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
                 },
                 "Handler": "handler.function1",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "stack1-dev1-dev-function1",
+                "FunctionName": "stack1-dev-dev-function1",
                 "MemorySize": 128,
                 "Timeout": 10,
                 "Role": {
@@ -266,14 +195,12 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": {
-                    "Ref": "ServerlessDeploymentBucket"
-                  },
-                  "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                  "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
                 },
                 "Handler": "handler.function2",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "stack1-dev1-dev-function2",
+                "FunctionName": "stack1-dev-dev-function2",
                 "MemorySize": 128,
                 "Timeout": 10,
                 "Role": {
@@ -291,14 +218,12 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": {
-                    "Ref": "ServerlessDeploymentBucket"
-                  },
-                  "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                  "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
                 },
                 "Handler": "handler.function3",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "stack1-dev1-dev-function3",
+                "FunctionName": "stack1-dev-dev-function3",
                 "MemorySize": 128,
                 "Timeout": 10,
                 "Role": {
@@ -316,14 +241,12 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": {
-                    "Ref": "ServerlessDeploymentBucket"
-                  },
-                  "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                  "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
                 },
                 "Handler": "handler.function4",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "stack1-dev1-dev-function4",
+                "FunctionName": "stack1-dev-dev-function4",
                 "MemorySize": 128,
                 "Timeout": 10,
                 "Role": {
@@ -341,14 +264,12 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": {
-                    "Ref": "ServerlessDeploymentBucket"
-                  },
-                  "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                  "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
                 },
                 "Handler": "handler.function5",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "stack1-dev1-dev-function5",
+                "FunctionName": "stack1-dev-dev-function5",
                 "MemorySize": 128,
                 "Timeout": 10,
                 "Role": {
@@ -366,14 +287,12 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": {
-                    "Ref": "ServerlessDeploymentBucket"
-                  },
-                  "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                  "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
                 },
                 "Handler": "handler.function6",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "stack1-dev1-dev-function6",
+                "FunctionName": "stack1-dev-dev-function6",
                 "MemorySize": 128,
                 "Timeout": 10,
                 "Role": {
@@ -391,14 +310,12 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": {
-                    "Ref": "ServerlessDeploymentBucket"
-                  },
-                  "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                  "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
                 },
                 "Handler": "handler.function7",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "stack1-dev1-dev-function7",
+                "FunctionName": "stack1-dev-dev-function7",
                 "MemorySize": 128,
                 "Timeout": 10,
                 "Role": {
@@ -416,14 +333,12 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": {
-                    "Ref": "ServerlessDeploymentBucket"
-                  },
-                  "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                  "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
                 },
                 "Handler": "handler.function8",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "stack1-dev1-dev-function8",
+                "FunctionName": "stack1-dev-dev-function8",
                 "MemorySize": 128,
                 "Timeout": 10,
                 "Role": {
@@ -441,14 +356,12 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": {
-                    "Ref": "ServerlessDeploymentBucket"
-                  },
-                  "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                  "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
                 },
                 "Handler": "handler.function9",
                 "Runtime": "nodejs18.x",
-                "FunctionName": "stack1-dev1-dev-function9",
+                "FunctionName": "stack1-dev-dev-function9",
                 "MemorySize": 128,
                 "Timeout": 10,
                 "Role": {
@@ -462,100 +375,100 @@
                 "Function9LogGroup"
               ]
             },
-            "Function1LambdaVersionU4Nw0QF4t3UtFPPtG39Rvg7gQo2Vf8wcIhdx9ROUk": {
+            "Function1LambdaVersionYkvsm7CEvFI1HoLC8su7jYKKeU7OnyX8EY9StTmdk": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "Function1LambdaFunction"
                 },
-                "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+                "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
               }
             },
-            "Function2LambdaVersionT9QEcX4LqgL3Mxjduf00l1R95I7qRl5qyVIkpZvUj4": {
+            "Function2LambdaVersion3PgCnLDOCrNtHciSaiMjvrdsTHsE8RoXiknw23C0": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "Function2LambdaFunction"
                 },
-                "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+                "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
               }
             },
-            "Function3LambdaVersionEK9j0g1m7QqO3BPiv9BvGQPj6k0bEx5IcXBHRVA0JU": {
+            "Function3LambdaVersionNWlR83JL1vRFc5ls8VCtyMBI4vBSt6zUereEi9iMKwk": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "Function3LambdaFunction"
                 },
-                "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+                "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
               }
             },
-            "Function4LambdaVersionFBm8tig5XKFNZY3KoGZhefJsD93uiYyyvyAhqMgKCig": {
+            "Function4LambdaVersion7sVYOandKPaaDRIKrXWH318HffarZYEZtyBXuvmEeUo": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "Function4LambdaFunction"
                 },
-                "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+                "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
               }
             },
-            "Function5LambdaVersionVH3VnGCKvvJ004vm9jLgW4rX5uY9s35IBtVt2YNUMA": {
+            "Function5LambdaVersionQA7iQ6d5LFkvqDJ1KHNJQegVMKFISOsarfAzE8oUMc": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "Function5LambdaFunction"
                 },
-                "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+                "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
               }
             },
-            "Function6LambdaVersionYcpzfIFZ46JqCGzWbMSEblCVYSixNkuHfZu5M6wnbg": {
+            "Function6LambdaVersion6f0eU4zb4OAI8eDO52LgoAWIDw7ZuPXWybo6Fw8VZNk": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "Function6LambdaFunction"
                 },
-                "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+                "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
               }
             },
-            "Function7LambdaVersionFTB7CfdH6LWvQQSdk9UMkpCoJ4HTytciOzlFu9Kbal0": {
+            "Function7LambdaVersionPnoQORPZFlbqqkiUj46T4UTc1D8HaDOP2nByAIIdRE": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "Function7LambdaFunction"
                 },
-                "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+                "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
               }
             },
-            "Function8LambdaVersionki0ubovSf7kTnHuK5lEGk8MtCzgx3PvaXafSyv1Rqk": {
+            "Function8LambdaVersionxccTWJzSxRzjxdHIyDOYFLoZZGl6Qd5NU8UlqDjoEM": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "Function8LambdaFunction"
                 },
-                "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+                "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
               }
             },
-            "Function9LambdaVersion2cgZe9F2BrXgVcrgkHxvYKvx6EfN2DGLwb0B8VCo": {
+            "Function9LambdaVersionySgP11m4zPdMJK85aJK9snlHc5FmPE0mAfSBQZu6vdE": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "Function9LambdaFunction"
                 },
-                "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+                "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
               }
             },
             "ApiGatewayRestApi": {
               "Type": "AWS::ApiGateway::RestApi",
               "Properties": {
-                "Name": "dev-stack1-dev1",
+                "Name": "dev-stack1-dev",
                 "EndpointConfiguration": {
                   "Types": [
                     "EDGE"
@@ -1113,7 +1026,7 @@
                 "Function9LambdaPermissionApiGateway"
               ]
             },
-            "ApiGatewayDeployment1743133637179": {
+            "ApiGatewayDeployment1743423915334": {
               "Type": "AWS::ApiGateway::Deployment",
               "Properties": {
                 "RestApiId": {
@@ -1469,92 +1382,90 @@
           },
           "Outputs": {
             "ServerlessDeploymentBucketName": {
-              "Value": {
-                "Ref": "ServerlessDeploymentBucket"
-              },
+              "Value": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
               "Export": {
-                "Name": "sls-stack1-dev1-dev-ServerlessDeploymentBucketName"
+                "Name": "sls-stack1-dev-dev-ServerlessDeploymentBucketName"
               }
             },
             "Function1LambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "Function1LambdaVersionU4Nw0QF4t3UtFPPtG39Rvg7gQo2Vf8wcIhdx9ROUk"
+                "Ref": "Function1LambdaVersionYkvsm7CEvFI1HoLC8su7jYKKeU7OnyX8EY9StTmdk"
               },
               "Export": {
-                "Name": "sls-stack1-dev1-dev-Function1LambdaFunctionQualifiedArn"
+                "Name": "sls-stack1-dev-dev-Function1LambdaFunctionQualifiedArn"
               }
             },
             "Function2LambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "Function2LambdaVersionT9QEcX4LqgL3Mxjduf00l1R95I7qRl5qyVIkpZvUj4"
+                "Ref": "Function2LambdaVersion3PgCnLDOCrNtHciSaiMjvrdsTHsE8RoXiknw23C0"
               },
               "Export": {
-                "Name": "sls-stack1-dev1-dev-Function2LambdaFunctionQualifiedArn"
+                "Name": "sls-stack1-dev-dev-Function2LambdaFunctionQualifiedArn"
               }
             },
             "Function3LambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "Function3LambdaVersionEK9j0g1m7QqO3BPiv9BvGQPj6k0bEx5IcXBHRVA0JU"
+                "Ref": "Function3LambdaVersionNWlR83JL1vRFc5ls8VCtyMBI4vBSt6zUereEi9iMKwk"
               },
               "Export": {
-                "Name": "sls-stack1-dev1-dev-Function3LambdaFunctionQualifiedArn"
+                "Name": "sls-stack1-dev-dev-Function3LambdaFunctionQualifiedArn"
               }
             },
             "Function4LambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "Function4LambdaVersionFBm8tig5XKFNZY3KoGZhefJsD93uiYyyvyAhqMgKCig"
+                "Ref": "Function4LambdaVersion7sVYOandKPaaDRIKrXWH318HffarZYEZtyBXuvmEeUo"
               },
               "Export": {
-                "Name": "sls-stack1-dev1-dev-Function4LambdaFunctionQualifiedArn"
+                "Name": "sls-stack1-dev-dev-Function4LambdaFunctionQualifiedArn"
               }
             },
             "Function5LambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "Function5LambdaVersionVH3VnGCKvvJ004vm9jLgW4rX5uY9s35IBtVt2YNUMA"
+                "Ref": "Function5LambdaVersionQA7iQ6d5LFkvqDJ1KHNJQegVMKFISOsarfAzE8oUMc"
               },
               "Export": {
-                "Name": "sls-stack1-dev1-dev-Function5LambdaFunctionQualifiedArn"
+                "Name": "sls-stack1-dev-dev-Function5LambdaFunctionQualifiedArn"
               }
             },
             "Function6LambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "Function6LambdaVersionYcpzfIFZ46JqCGzWbMSEblCVYSixNkuHfZu5M6wnbg"
+                "Ref": "Function6LambdaVersion6f0eU4zb4OAI8eDO52LgoAWIDw7ZuPXWybo6Fw8VZNk"
               },
               "Export": {
-                "Name": "sls-stack1-dev1-dev-Function6LambdaFunctionQualifiedArn"
+                "Name": "sls-stack1-dev-dev-Function6LambdaFunctionQualifiedArn"
               }
             },
             "Function7LambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "Function7LambdaVersionFTB7CfdH6LWvQQSdk9UMkpCoJ4HTytciOzlFu9Kbal0"
+                "Ref": "Function7LambdaVersionPnoQORPZFlbqqkiUj46T4UTc1D8HaDOP2nByAIIdRE"
               },
               "Export": {
-                "Name": "sls-stack1-dev1-dev-Function7LambdaFunctionQualifiedArn"
+                "Name": "sls-stack1-dev-dev-Function7LambdaFunctionQualifiedArn"
               }
             },
             "Function8LambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "Function8LambdaVersionki0ubovSf7kTnHuK5lEGk8MtCzgx3PvaXafSyv1Rqk"
+                "Ref": "Function8LambdaVersionxccTWJzSxRzjxdHIyDOYFLoZZGl6Qd5NU8UlqDjoEM"
               },
               "Export": {
-                "Name": "sls-stack1-dev1-dev-Function8LambdaFunctionQualifiedArn"
+                "Name": "sls-stack1-dev-dev-Function8LambdaFunctionQualifiedArn"
               }
             },
             "Function9LambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "Function9LambdaVersion2cgZe9F2BrXgVcrgkHxvYKvx6EfN2DGLwb0B8VCo"
+                "Ref": "Function9LambdaVersionySgP11m4zPdMJK85aJK9snlHc5FmPE0mAfSBQZu6vdE"
               },
               "Export": {
-                "Name": "sls-stack1-dev1-dev-Function9LambdaFunctionQualifiedArn"
+                "Name": "sls-stack1-dev-dev-Function9LambdaFunctionQualifiedArn"
               }
             },
             "ServiceEndpoint": {
@@ -1580,89 +1491,7 @@
                 ]
               },
               "Export": {
-                "Name": "sls-stack1-dev1-dev-ServiceEndpoint"
-              }
-            }
-          }
-        },
-        "coreCloudFormationTemplate": {
-          "AWSTemplateFormatVersion": "2010-09-09",
-          "Description": "The AWS CloudFormation template for this Serverless application",
-          "Resources": {
-            "ServerlessDeploymentBucket": {
-              "Type": "AWS::S3::Bucket",
-              "Properties": {
-                "BucketEncryption": {
-                  "ServerSideEncryptionConfiguration": [
-                    {
-                      "ServerSideEncryptionByDefault": {
-                        "SSEAlgorithm": "AES256"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            "ServerlessDeploymentBucketPolicy": {
-              "Type": "AWS::S3::BucketPolicy",
-              "Properties": {
-                "Bucket": {
-                  "Ref": "ServerlessDeploymentBucket"
-                },
-                "PolicyDocument": {
-                  "Statement": [
-                    {
-                      "Action": "s3:*",
-                      "Effect": "Deny",
-                      "Principal": "*",
-                      "Resource": [
-                        {
-                          "Fn::Join": [
-                            "",
-                            [
-                              "arn:",
-                              {
-                                "Ref": "AWS::Partition"
-                              },
-                              ":s3:::",
-                              {
-                                "Ref": "ServerlessDeploymentBucket"
-                              },
-                              "/*"
-                            ]
-                          ]
-                        },
-                        {
-                          "Fn::Join": [
-                            "",
-                            [
-                              "arn:",
-                              {
-                                "Ref": "AWS::Partition"
-                              },
-                              ":s3:::",
-                              {
-                                "Ref": "ServerlessDeploymentBucket"
-                              }
-                            ]
-                          ]
-                        }
-                      ],
-                      "Condition": {
-                        "Bool": {
-                          "aws:SecureTransport": false
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "Outputs": {
-            "ServerlessDeploymentBucketName": {
-              "Value": {
-                "Ref": "ServerlessDeploymentBucket"
+                "Name": "sls-stack1-dev-dev-ServiceEndpoint"
               }
             }
           }
@@ -1670,8 +1499,7 @@
         "vpc": {}
       },
       "plugins": [
-        "serverless-offline",
-        "serverless-nested-stack"
+        "serverless-offline"
       ],
       "functions": {
         "function1": {
@@ -1685,13 +1513,13 @@
               }
             }
           ],
-          "name": "stack1-dev1-dev-function1",
+          "name": "stack1-dev-dev-function1",
           "package": {},
           "memory": 128,
           "timeout": 10,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "Function1LambdaVersionU4Nw0QF4t3UtFPPtG39Rvg7gQo2Vf8wcIhdx9ROUk"
+          "versionLogicalId": "Function1LambdaVersionYkvsm7CEvFI1HoLC8su7jYKKeU7OnyX8EY9StTmdk"
         },
         "function2": {
           "handler": "handler.function2",
@@ -1704,13 +1532,13 @@
               }
             }
           ],
-          "name": "stack1-dev1-dev-function2",
+          "name": "stack1-dev-dev-function2",
           "package": {},
           "memory": 128,
           "timeout": 10,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "Function2LambdaVersionT9QEcX4LqgL3Mxjduf00l1R95I7qRl5qyVIkpZvUj4"
+          "versionLogicalId": "Function2LambdaVersion3PgCnLDOCrNtHciSaiMjvrdsTHsE8RoXiknw23C0"
         },
         "function3": {
           "handler": "handler.function3",
@@ -1723,13 +1551,13 @@
               }
             }
           ],
-          "name": "stack1-dev1-dev-function3",
+          "name": "stack1-dev-dev-function3",
           "package": {},
           "memory": 128,
           "timeout": 10,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "Function3LambdaVersionEK9j0g1m7QqO3BPiv9BvGQPj6k0bEx5IcXBHRVA0JU"
+          "versionLogicalId": "Function3LambdaVersionNWlR83JL1vRFc5ls8VCtyMBI4vBSt6zUereEi9iMKwk"
         },
         "function4": {
           "handler": "handler.function4",
@@ -1742,13 +1570,13 @@
               }
             }
           ],
-          "name": "stack1-dev1-dev-function4",
+          "name": "stack1-dev-dev-function4",
           "package": {},
           "memory": 128,
           "timeout": 10,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "Function4LambdaVersionFBm8tig5XKFNZY3KoGZhefJsD93uiYyyvyAhqMgKCig"
+          "versionLogicalId": "Function4LambdaVersion7sVYOandKPaaDRIKrXWH318HffarZYEZtyBXuvmEeUo"
         },
         "function5": {
           "handler": "handler.function5",
@@ -1761,13 +1589,13 @@
               }
             }
           ],
-          "name": "stack1-dev1-dev-function5",
+          "name": "stack1-dev-dev-function5",
           "package": {},
           "memory": 128,
           "timeout": 10,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "Function5LambdaVersionVH3VnGCKvvJ004vm9jLgW4rX5uY9s35IBtVt2YNUMA"
+          "versionLogicalId": "Function5LambdaVersionQA7iQ6d5LFkvqDJ1KHNJQegVMKFISOsarfAzE8oUMc"
         },
         "function6": {
           "handler": "handler.function6",
@@ -1780,13 +1608,13 @@
               }
             }
           ],
-          "name": "stack1-dev1-dev-function6",
+          "name": "stack1-dev-dev-function6",
           "package": {},
           "memory": 128,
           "timeout": 10,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "Function6LambdaVersionYcpzfIFZ46JqCGzWbMSEblCVYSixNkuHfZu5M6wnbg"
+          "versionLogicalId": "Function6LambdaVersion6f0eU4zb4OAI8eDO52LgoAWIDw7ZuPXWybo6Fw8VZNk"
         },
         "function7": {
           "handler": "handler.function7",
@@ -1799,13 +1627,13 @@
               }
             }
           ],
-          "name": "stack1-dev1-dev-function7",
+          "name": "stack1-dev-dev-function7",
           "package": {},
           "memory": 128,
           "timeout": 10,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "Function7LambdaVersionFTB7CfdH6LWvQQSdk9UMkpCoJ4HTytciOzlFu9Kbal0"
+          "versionLogicalId": "Function7LambdaVersionPnoQORPZFlbqqkiUj46T4UTc1D8HaDOP2nByAIIdRE"
         },
         "function8": {
           "handler": "handler.function8",
@@ -1818,13 +1646,13 @@
               }
             }
           ],
-          "name": "stack1-dev1-dev-function8",
+          "name": "stack1-dev-dev-function8",
           "package": {},
           "memory": 128,
           "timeout": 10,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "Function8LambdaVersionki0ubovSf7kTnHuK5lEGk8MtCzgx3PvaXafSyv1Rqk"
+          "versionLogicalId": "Function8LambdaVersionxccTWJzSxRzjxdHIyDOYFLoZZGl6Qd5NU8UlqDjoEM"
         },
         "function9": {
           "handler": "handler.function9",
@@ -1837,13 +1665,13 @@
               }
             }
           ],
-          "name": "stack1-dev1-dev-function9",
+          "name": "stack1-dev-dev-function9",
           "package": {},
           "memory": 128,
           "timeout": 10,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "Function9LambdaVersion2cgZe9F2BrXgVcrgkHxvYKvx6EfN2DGLwb0B8VCo"
+          "versionLogicalId": "Function9LambdaVersionySgP11m4zPdMJK85aJK9snlHc5FmPE0mAfSBQZu6vdE"
         }
       }
     },
@@ -1869,127 +1697,58 @@
         "AWSTemplateFormatVersion": "2010-09-09",
         "Description": "The AWS CloudFormation template for this Serverless application",
         "Resources": {
-          "ServerlessDeploymentBucket": {
-            "Type": "AWS::S3::Bucket",
-            "Properties": {
-              "BucketEncryption": {
-                "ServerSideEncryptionConfiguration": [
-                  {
-                    "ServerSideEncryptionByDefault": {
-                      "SSEAlgorithm": "AES256"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "ServerlessDeploymentBucketPolicy": {
-            "Type": "AWS::S3::BucketPolicy",
-            "Properties": {
-              "Bucket": {
-                "Ref": "ServerlessDeploymentBucket"
-              },
-              "PolicyDocument": {
-                "Statement": [
-                  {
-                    "Action": "s3:*",
-                    "Effect": "Deny",
-                    "Principal": "*",
-                    "Resource": [
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:",
-                            {
-                              "Ref": "AWS::Partition"
-                            },
-                            ":s3:::",
-                            {
-                              "Ref": "ServerlessDeploymentBucket"
-                            },
-                            "/*"
-                          ]
-                        ]
-                      },
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:",
-                            {
-                              "Ref": "AWS::Partition"
-                            },
-                            ":s3:::",
-                            {
-                              "Ref": "ServerlessDeploymentBucket"
-                            }
-                          ]
-                        ]
-                      }
-                    ],
-                    "Condition": {
-                      "Bool": {
-                        "aws:SecureTransport": false
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          },
           "Function1LogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/stack1-dev1-dev-function1"
+              "LogGroupName": "/aws/lambda/stack1-dev-dev-function1"
             }
           },
           "Function2LogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/stack1-dev1-dev-function2"
+              "LogGroupName": "/aws/lambda/stack1-dev-dev-function2"
             }
           },
           "Function3LogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/stack1-dev1-dev-function3"
+              "LogGroupName": "/aws/lambda/stack1-dev-dev-function3"
             }
           },
           "Function4LogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/stack1-dev1-dev-function4"
+              "LogGroupName": "/aws/lambda/stack1-dev-dev-function4"
             }
           },
           "Function5LogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/stack1-dev1-dev-function5"
+              "LogGroupName": "/aws/lambda/stack1-dev-dev-function5"
             }
           },
           "Function6LogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/stack1-dev1-dev-function6"
+              "LogGroupName": "/aws/lambda/stack1-dev-dev-function6"
             }
           },
           "Function7LogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/stack1-dev1-dev-function7"
+              "LogGroupName": "/aws/lambda/stack1-dev-dev-function7"
             }
           },
           "Function8LogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/stack1-dev1-dev-function8"
+              "LogGroupName": "/aws/lambda/stack1-dev-dev-function8"
             }
           },
           "Function9LogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/stack1-dev1-dev-function9"
+              "LogGroupName": "/aws/lambda/stack1-dev-dev-function9"
             }
           },
           "IamRoleLambdaExecution": {
@@ -2017,7 +1776,7 @@
                     "Fn::Join": [
                       "-",
                       [
-                        "stack1-dev1",
+                        "stack1-dev",
                         "dev",
                         "lambda"
                       ]
@@ -2035,7 +1794,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/stack1-dev1-dev*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/stack1-dev-dev*:*"
                           }
                         ]
                       },
@@ -2046,7 +1805,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/stack1-dev1-dev*:*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/stack1-dev-dev*:*:*"
                           }
                         ]
                       },
@@ -2066,7 +1825,7 @@
                 "Fn::Join": [
                   "-",
                   [
-                    "stack1-dev1",
+                    "stack1-dev",
                     "dev",
                     {
                       "Ref": "AWS::Region"
@@ -2081,14 +1840,12 @@
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
-                "S3Bucket": {
-                  "Ref": "ServerlessDeploymentBucket"
-                },
-                "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
               },
               "Handler": "handler.function1",
               "Runtime": "nodejs18.x",
-              "FunctionName": "stack1-dev1-dev-function1",
+              "FunctionName": "stack1-dev-dev-function1",
               "MemorySize": 128,
               "Timeout": 10,
               "Role": {
@@ -2106,14 +1863,12 @@
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
-                "S3Bucket": {
-                  "Ref": "ServerlessDeploymentBucket"
-                },
-                "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
               },
               "Handler": "handler.function2",
               "Runtime": "nodejs18.x",
-              "FunctionName": "stack1-dev1-dev-function2",
+              "FunctionName": "stack1-dev-dev-function2",
               "MemorySize": 128,
               "Timeout": 10,
               "Role": {
@@ -2131,14 +1886,12 @@
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
-                "S3Bucket": {
-                  "Ref": "ServerlessDeploymentBucket"
-                },
-                "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
               },
               "Handler": "handler.function3",
               "Runtime": "nodejs18.x",
-              "FunctionName": "stack1-dev1-dev-function3",
+              "FunctionName": "stack1-dev-dev-function3",
               "MemorySize": 128,
               "Timeout": 10,
               "Role": {
@@ -2156,14 +1909,12 @@
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
-                "S3Bucket": {
-                  "Ref": "ServerlessDeploymentBucket"
-                },
-                "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
               },
               "Handler": "handler.function4",
               "Runtime": "nodejs18.x",
-              "FunctionName": "stack1-dev1-dev-function4",
+              "FunctionName": "stack1-dev-dev-function4",
               "MemorySize": 128,
               "Timeout": 10,
               "Role": {
@@ -2181,14 +1932,12 @@
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
-                "S3Bucket": {
-                  "Ref": "ServerlessDeploymentBucket"
-                },
-                "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
               },
               "Handler": "handler.function5",
               "Runtime": "nodejs18.x",
-              "FunctionName": "stack1-dev1-dev-function5",
+              "FunctionName": "stack1-dev-dev-function5",
               "MemorySize": 128,
               "Timeout": 10,
               "Role": {
@@ -2206,14 +1955,12 @@
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
-                "S3Bucket": {
-                  "Ref": "ServerlessDeploymentBucket"
-                },
-                "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
               },
               "Handler": "handler.function6",
               "Runtime": "nodejs18.x",
-              "FunctionName": "stack1-dev1-dev-function6",
+              "FunctionName": "stack1-dev-dev-function6",
               "MemorySize": 128,
               "Timeout": 10,
               "Role": {
@@ -2231,14 +1978,12 @@
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
-                "S3Bucket": {
-                  "Ref": "ServerlessDeploymentBucket"
-                },
-                "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
               },
               "Handler": "handler.function7",
               "Runtime": "nodejs18.x",
-              "FunctionName": "stack1-dev1-dev-function7",
+              "FunctionName": "stack1-dev-dev-function7",
               "MemorySize": 128,
               "Timeout": 10,
               "Role": {
@@ -2256,14 +2001,12 @@
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
-                "S3Bucket": {
-                  "Ref": "ServerlessDeploymentBucket"
-                },
-                "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
               },
               "Handler": "handler.function8",
               "Runtime": "nodejs18.x",
-              "FunctionName": "stack1-dev1-dev-function8",
+              "FunctionName": "stack1-dev-dev-function8",
               "MemorySize": 128,
               "Timeout": 10,
               "Role": {
@@ -2281,14 +2024,12 @@
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
-                "S3Bucket": {
-                  "Ref": "ServerlessDeploymentBucket"
-                },
-                "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+                "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+                "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
               },
               "Handler": "handler.function9",
               "Runtime": "nodejs18.x",
-              "FunctionName": "stack1-dev1-dev-function9",
+              "FunctionName": "stack1-dev-dev-function9",
               "MemorySize": 128,
               "Timeout": 10,
               "Role": {
@@ -2302,100 +2043,100 @@
               "Function9LogGroup"
             ]
           },
-          "Function1LambdaVersionU4Nw0QF4t3UtFPPtG39Rvg7gQo2Vf8wcIhdx9ROUk": {
+          "Function1LambdaVersionYkvsm7CEvFI1HoLC8su7jYKKeU7OnyX8EY9StTmdk": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "Function1LambdaFunction"
               },
-              "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+              "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
             }
           },
-          "Function2LambdaVersionT9QEcX4LqgL3Mxjduf00l1R95I7qRl5qyVIkpZvUj4": {
+          "Function2LambdaVersion3PgCnLDOCrNtHciSaiMjvrdsTHsE8RoXiknw23C0": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "Function2LambdaFunction"
               },
-              "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+              "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
             }
           },
-          "Function3LambdaVersionEK9j0g1m7QqO3BPiv9BvGQPj6k0bEx5IcXBHRVA0JU": {
+          "Function3LambdaVersionNWlR83JL1vRFc5ls8VCtyMBI4vBSt6zUereEi9iMKwk": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "Function3LambdaFunction"
               },
-              "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+              "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
             }
           },
-          "Function4LambdaVersionFBm8tig5XKFNZY3KoGZhefJsD93uiYyyvyAhqMgKCig": {
+          "Function4LambdaVersion7sVYOandKPaaDRIKrXWH318HffarZYEZtyBXuvmEeUo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "Function4LambdaFunction"
               },
-              "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+              "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
             }
           },
-          "Function5LambdaVersionVH3VnGCKvvJ004vm9jLgW4rX5uY9s35IBtVt2YNUMA": {
+          "Function5LambdaVersionQA7iQ6d5LFkvqDJ1KHNJQegVMKFISOsarfAzE8oUMc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "Function5LambdaFunction"
               },
-              "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+              "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
             }
           },
-          "Function6LambdaVersionYcpzfIFZ46JqCGzWbMSEblCVYSixNkuHfZu5M6wnbg": {
+          "Function6LambdaVersion6f0eU4zb4OAI8eDO52LgoAWIDw7ZuPXWybo6Fw8VZNk": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "Function6LambdaFunction"
               },
-              "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+              "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
             }
           },
-          "Function7LambdaVersionFTB7CfdH6LWvQQSdk9UMkpCoJ4HTytciOzlFu9Kbal0": {
+          "Function7LambdaVersionPnoQORPZFlbqqkiUj46T4UTc1D8HaDOP2nByAIIdRE": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "Function7LambdaFunction"
               },
-              "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+              "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
             }
           },
-          "Function8LambdaVersionki0ubovSf7kTnHuK5lEGk8MtCzgx3PvaXafSyv1Rqk": {
+          "Function8LambdaVersionxccTWJzSxRzjxdHIyDOYFLoZZGl6Qd5NU8UlqDjoEM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "Function8LambdaFunction"
               },
-              "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+              "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
             }
           },
-          "Function9LambdaVersion2cgZe9F2BrXgVcrgkHxvYKvx6EfN2DGLwb0B8VCo": {
+          "Function9LambdaVersionySgP11m4zPdMJK85aJK9snlHc5FmPE0mAfSBQZu6vdE": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "Function9LambdaFunction"
               },
-              "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+              "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
             }
           },
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "dev-stack1-dev1",
+              "Name": "dev-stack1-dev",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -2953,7 +2694,7 @@
               "Function9LambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1743133637179": {
+          "ApiGatewayDeployment1743423915334": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -3309,92 +3050,90 @@
         },
         "Outputs": {
           "ServerlessDeploymentBucketName": {
-            "Value": {
-              "Ref": "ServerlessDeploymentBucket"
-            },
+            "Value": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
             "Export": {
-              "Name": "sls-stack1-dev1-dev-ServerlessDeploymentBucketName"
+              "Name": "sls-stack1-dev-dev-ServerlessDeploymentBucketName"
             }
           },
           "Function1LambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "Function1LambdaVersionU4Nw0QF4t3UtFPPtG39Rvg7gQo2Vf8wcIhdx9ROUk"
+              "Ref": "Function1LambdaVersionYkvsm7CEvFI1HoLC8su7jYKKeU7OnyX8EY9StTmdk"
             },
             "Export": {
-              "Name": "sls-stack1-dev1-dev-Function1LambdaFunctionQualifiedArn"
+              "Name": "sls-stack1-dev-dev-Function1LambdaFunctionQualifiedArn"
             }
           },
           "Function2LambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "Function2LambdaVersionT9QEcX4LqgL3Mxjduf00l1R95I7qRl5qyVIkpZvUj4"
+              "Ref": "Function2LambdaVersion3PgCnLDOCrNtHciSaiMjvrdsTHsE8RoXiknw23C0"
             },
             "Export": {
-              "Name": "sls-stack1-dev1-dev-Function2LambdaFunctionQualifiedArn"
+              "Name": "sls-stack1-dev-dev-Function2LambdaFunctionQualifiedArn"
             }
           },
           "Function3LambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "Function3LambdaVersionEK9j0g1m7QqO3BPiv9BvGQPj6k0bEx5IcXBHRVA0JU"
+              "Ref": "Function3LambdaVersionNWlR83JL1vRFc5ls8VCtyMBI4vBSt6zUereEi9iMKwk"
             },
             "Export": {
-              "Name": "sls-stack1-dev1-dev-Function3LambdaFunctionQualifiedArn"
+              "Name": "sls-stack1-dev-dev-Function3LambdaFunctionQualifiedArn"
             }
           },
           "Function4LambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "Function4LambdaVersionFBm8tig5XKFNZY3KoGZhefJsD93uiYyyvyAhqMgKCig"
+              "Ref": "Function4LambdaVersion7sVYOandKPaaDRIKrXWH318HffarZYEZtyBXuvmEeUo"
             },
             "Export": {
-              "Name": "sls-stack1-dev1-dev-Function4LambdaFunctionQualifiedArn"
+              "Name": "sls-stack1-dev-dev-Function4LambdaFunctionQualifiedArn"
             }
           },
           "Function5LambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "Function5LambdaVersionVH3VnGCKvvJ004vm9jLgW4rX5uY9s35IBtVt2YNUMA"
+              "Ref": "Function5LambdaVersionQA7iQ6d5LFkvqDJ1KHNJQegVMKFISOsarfAzE8oUMc"
             },
             "Export": {
-              "Name": "sls-stack1-dev1-dev-Function5LambdaFunctionQualifiedArn"
+              "Name": "sls-stack1-dev-dev-Function5LambdaFunctionQualifiedArn"
             }
           },
           "Function6LambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "Function6LambdaVersionYcpzfIFZ46JqCGzWbMSEblCVYSixNkuHfZu5M6wnbg"
+              "Ref": "Function6LambdaVersion6f0eU4zb4OAI8eDO52LgoAWIDw7ZuPXWybo6Fw8VZNk"
             },
             "Export": {
-              "Name": "sls-stack1-dev1-dev-Function6LambdaFunctionQualifiedArn"
+              "Name": "sls-stack1-dev-dev-Function6LambdaFunctionQualifiedArn"
             }
           },
           "Function7LambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "Function7LambdaVersionFTB7CfdH6LWvQQSdk9UMkpCoJ4HTytciOzlFu9Kbal0"
+              "Ref": "Function7LambdaVersionPnoQORPZFlbqqkiUj46T4UTc1D8HaDOP2nByAIIdRE"
             },
             "Export": {
-              "Name": "sls-stack1-dev1-dev-Function7LambdaFunctionQualifiedArn"
+              "Name": "sls-stack1-dev-dev-Function7LambdaFunctionQualifiedArn"
             }
           },
           "Function8LambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "Function8LambdaVersionki0ubovSf7kTnHuK5lEGk8MtCzgx3PvaXafSyv1Rqk"
+              "Ref": "Function8LambdaVersionxccTWJzSxRzjxdHIyDOYFLoZZGl6Qd5NU8UlqDjoEM"
             },
             "Export": {
-              "Name": "sls-stack1-dev1-dev-Function8LambdaFunctionQualifiedArn"
+              "Name": "sls-stack1-dev-dev-Function8LambdaFunctionQualifiedArn"
             }
           },
           "Function9LambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "Function9LambdaVersion2cgZe9F2BrXgVcrgkHxvYKvx6EfN2DGLwb0B8VCo"
+              "Ref": "Function9LambdaVersionySgP11m4zPdMJK85aJK9snlHc5FmPE0mAfSBQZu6vdE"
             },
             "Export": {
-              "Name": "sls-stack1-dev1-dev-Function9LambdaFunctionQualifiedArn"
+              "Name": "sls-stack1-dev-dev-Function9LambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -3420,89 +3159,7 @@
               ]
             },
             "Export": {
-              "Name": "sls-stack1-dev1-dev-ServiceEndpoint"
-            }
-          }
-        }
-      },
-      "coreCloudFormationTemplate": {
-        "AWSTemplateFormatVersion": "2010-09-09",
-        "Description": "The AWS CloudFormation template for this Serverless application",
-        "Resources": {
-          "ServerlessDeploymentBucket": {
-            "Type": "AWS::S3::Bucket",
-            "Properties": {
-              "BucketEncryption": {
-                "ServerSideEncryptionConfiguration": [
-                  {
-                    "ServerSideEncryptionByDefault": {
-                      "SSEAlgorithm": "AES256"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "ServerlessDeploymentBucketPolicy": {
-            "Type": "AWS::S3::BucketPolicy",
-            "Properties": {
-              "Bucket": {
-                "Ref": "ServerlessDeploymentBucket"
-              },
-              "PolicyDocument": {
-                "Statement": [
-                  {
-                    "Action": "s3:*",
-                    "Effect": "Deny",
-                    "Principal": "*",
-                    "Resource": [
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:",
-                            {
-                              "Ref": "AWS::Partition"
-                            },
-                            ":s3:::",
-                            {
-                              "Ref": "ServerlessDeploymentBucket"
-                            },
-                            "/*"
-                          ]
-                        ]
-                      },
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:",
-                            {
-                              "Ref": "AWS::Partition"
-                            },
-                            ":s3:::",
-                            {
-                              "Ref": "ServerlessDeploymentBucket"
-                            }
-                          ]
-                        ]
-                      }
-                    ],
-                    "Condition": {
-                      "Bool": {
-                        "aws:SecureTransport": false
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "Outputs": {
-          "ServerlessDeploymentBucketName": {
-            "Value": {
-              "Ref": "ServerlessDeploymentBucket"
+              "Name": "sls-stack1-dev-dev-ServiceEndpoint"
             }
           }
         }
@@ -3534,9 +3191,9 @@
       },
       "instanceParameters": null
     },
-    "serviceRawFile": "# \"org\" ensures this Service is used with the correct Serverless Framework Access Key.\r\norg: surendra123\r\n# \"app\" enables Serverless Framework Dashboard features and sharing them with other Services.\r\napp: nestedstacks\r\n# \"service\" is the name of this project. This will also be added to your AWS resource names.\r\nservice: stack1-dev1\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  region: us-east-1\r\n  stackName: stack1-dev\r\n  memorySize: 128\r\n  timeout: 10\r\n  iamRoleStatements:\r\n    - Effect: Allow\r\n      Action:\r\n        - lambda:InvokeFunction\r\n      Resource: \"*\"\r\nplugins:\r\n   - serverless-offline\r\n   - serverless-nested-stack\r\n   \r\nfunctions:\r\n  function1:\r\n    handler: handler.function1\r\n    events:\r\n      - http:\r\n          path: function1\r\n          method: get\r\n  function2:\r\n    handler: handler.function2\r\n    events:\r\n      - http:\r\n          path: function2\r\n          method: post\r\n\r\n  function3:\r\n    handler: handler.function3\r\n    events:\r\n      - http:\r\n          path: function3\r\n          method: get\r\n\r\n  function4:\r\n    handler: handler.function4\r\n    events:\r\n      - http:\r\n          path: function4\r\n          method: post\r\n\r\n  function5:\r\n    handler: handler.function5\r\n    events:\r\n      - http:\r\n          path: function5\r\n          method: get\r\n\r\n  function6:\r\n    handler: handler.function6\r\n    events:\r\n      - http:\r\n          path: function6\r\n          method: post\r\n\r\n  function7:\r\n    handler: handler.function7\r\n    events:\r\n      - http:\r\n          path: function7\r\n          method: get\r\n\r\n  function8:\r\n    handler: handler.function8\r\n    events:\r\n      - http:\r\n          path: function8\r\n          method: post\r\n\r\n  function9:\r\n    handler: handler.function9\r\n    events:\r\n      - http:\r\n          path: function9\r\n          method: get\r\n \r\n \r\n                   \r\n          \r\n  \r\n\r\n\r\n",
+    "serviceRawFile": "# \"org\" ensures this Service is used with the correct Serverless Framework Access Key.\r\norg: surendra123\r\n# \"app\" enables Serverless Framework Dashboard features and sharing them with other Services.\r\napp: nestedstacks\r\n# \"service\" is the name of this project. This will also be added to your AWS resource names.\r\nservice: stack1-dev\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  region: us-east-1\r\n  stackName: stack1-dev\r\n  memorySize: 128\r\n  timeout: 10\r\n  iamRoleStatements:\r\n    - Effect: Allow\r\n      Action:\r\n        - lambda:InvokeFunction\r\n      Resource: \"*\"\r\nplugins:\r\n   - serverless-offline\r\n      \r\nfunctions:\r\n  function1:\r\n    handler: handler.function1\r\n    events:\r\n      - http:\r\n          path: function1\r\n          method: get\r\n  function2:\r\n    handler: handler.function2\r\n    events:\r\n      - http:\r\n          path: function2\r\n          method: post\r\n\r\n  function3:\r\n    handler: handler.function3\r\n    events:\r\n      - http:\r\n          path: function3\r\n          method: get\r\n\r\n  function4:\r\n    handler: handler.function4\r\n    events:\r\n      - http:\r\n          path: function4\r\n          method: post\r\n\r\n  function5:\r\n    handler: handler.function5\r\n    events:\r\n      - http:\r\n          path: function5\r\n          method: get\r\n\r\n  function6:\r\n    handler: handler.function6\r\n    events:\r\n      - http:\r\n          path: function6\r\n          method: post\r\n\r\n  function7:\r\n    handler: handler.function7\r\n    events:\r\n      - http:\r\n          path: function7\r\n          method: get\r\n\r\n  function8:\r\n    handler: handler.function8\r\n    events:\r\n      - http:\r\n          path: function8\r\n          method: post\r\n\r\n  function9:\r\n    handler: handler.function9\r\n    events:\r\n      - http:\r\n          path: function9\r\n          method: get\r\n \r\n \r\n                   \r\n          \r\n  \r\n\r\n\r\n",
     "command": [
-      "package"
+      "deploy"
     ],
     "options": {},
     "orgId": "da75ea06-b135-4515-b37d-2f2f1e9db8a8",
@@ -3553,127 +3210,58 @@
       "AWSTemplateFormatVersion": "2010-09-09",
       "Description": "The AWS CloudFormation template for this Serverless application",
       "Resources": {
-        "ServerlessDeploymentBucket": {
-          "Type": "AWS::S3::Bucket",
-          "Properties": {
-            "BucketEncryption": {
-              "ServerSideEncryptionConfiguration": [
-                {
-                  "ServerSideEncryptionByDefault": {
-                    "SSEAlgorithm": "AES256"
-                  }
-                }
-              ]
-            }
-          }
-        },
-        "ServerlessDeploymentBucketPolicy": {
-          "Type": "AWS::S3::BucketPolicy",
-          "Properties": {
-            "Bucket": {
-              "Ref": "ServerlessDeploymentBucket"
-            },
-            "PolicyDocument": {
-              "Statement": [
-                {
-                  "Action": "s3:*",
-                  "Effect": "Deny",
-                  "Principal": "*",
-                  "Resource": [
-                    {
-                      "Fn::Join": [
-                        "",
-                        [
-                          "arn:",
-                          {
-                            "Ref": "AWS::Partition"
-                          },
-                          ":s3:::",
-                          {
-                            "Ref": "ServerlessDeploymentBucket"
-                          },
-                          "/*"
-                        ]
-                      ]
-                    },
-                    {
-                      "Fn::Join": [
-                        "",
-                        [
-                          "arn:",
-                          {
-                            "Ref": "AWS::Partition"
-                          },
-                          ":s3:::",
-                          {
-                            "Ref": "ServerlessDeploymentBucket"
-                          }
-                        ]
-                      ]
-                    }
-                  ],
-                  "Condition": {
-                    "Bool": {
-                      "aws:SecureTransport": false
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        },
         "Function1LogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/stack1-dev1-dev-function1"
+            "LogGroupName": "/aws/lambda/stack1-dev-dev-function1"
           }
         },
         "Function2LogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/stack1-dev1-dev-function2"
+            "LogGroupName": "/aws/lambda/stack1-dev-dev-function2"
           }
         },
         "Function3LogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/stack1-dev1-dev-function3"
+            "LogGroupName": "/aws/lambda/stack1-dev-dev-function3"
           }
         },
         "Function4LogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/stack1-dev1-dev-function4"
+            "LogGroupName": "/aws/lambda/stack1-dev-dev-function4"
           }
         },
         "Function5LogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/stack1-dev1-dev-function5"
+            "LogGroupName": "/aws/lambda/stack1-dev-dev-function5"
           }
         },
         "Function6LogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/stack1-dev1-dev-function6"
+            "LogGroupName": "/aws/lambda/stack1-dev-dev-function6"
           }
         },
         "Function7LogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/stack1-dev1-dev-function7"
+            "LogGroupName": "/aws/lambda/stack1-dev-dev-function7"
           }
         },
         "Function8LogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/stack1-dev1-dev-function8"
+            "LogGroupName": "/aws/lambda/stack1-dev-dev-function8"
           }
         },
         "Function9LogGroup": {
           "Type": "AWS::Logs::LogGroup",
           "Properties": {
-            "LogGroupName": "/aws/lambda/stack1-dev1-dev-function9"
+            "LogGroupName": "/aws/lambda/stack1-dev-dev-function9"
           }
         },
         "IamRoleLambdaExecution": {
@@ -3701,7 +3289,7 @@
                   "Fn::Join": [
                     "-",
                     [
-                      "stack1-dev1",
+                      "stack1-dev",
                       "dev",
                       "lambda"
                     ]
@@ -3719,7 +3307,7 @@
                       ],
                       "Resource": [
                         {
-                          "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/stack1-dev1-dev*:*"
+                          "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/stack1-dev-dev*:*"
                         }
                       ]
                     },
@@ -3730,7 +3318,7 @@
                       ],
                       "Resource": [
                         {
-                          "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/stack1-dev1-dev*:*:*"
+                          "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/stack1-dev-dev*:*:*"
                         }
                       ]
                     },
@@ -3750,7 +3338,7 @@
               "Fn::Join": [
                 "-",
                 [
-                  "stack1-dev1",
+                  "stack1-dev",
                   "dev",
                   {
                     "Ref": "AWS::Region"
@@ -3765,14 +3353,12 @@
           "Type": "AWS::Lambda::Function",
           "Properties": {
             "Code": {
-              "S3Bucket": {
-                "Ref": "ServerlessDeploymentBucket"
-              },
-              "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+              "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+              "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
             },
             "Handler": "handler.function1",
             "Runtime": "nodejs18.x",
-            "FunctionName": "stack1-dev1-dev-function1",
+            "FunctionName": "stack1-dev-dev-function1",
             "MemorySize": 128,
             "Timeout": 10,
             "Role": {
@@ -3790,14 +3376,12 @@
           "Type": "AWS::Lambda::Function",
           "Properties": {
             "Code": {
-              "S3Bucket": {
-                "Ref": "ServerlessDeploymentBucket"
-              },
-              "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+              "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+              "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
             },
             "Handler": "handler.function2",
             "Runtime": "nodejs18.x",
-            "FunctionName": "stack1-dev1-dev-function2",
+            "FunctionName": "stack1-dev-dev-function2",
             "MemorySize": 128,
             "Timeout": 10,
             "Role": {
@@ -3815,14 +3399,12 @@
           "Type": "AWS::Lambda::Function",
           "Properties": {
             "Code": {
-              "S3Bucket": {
-                "Ref": "ServerlessDeploymentBucket"
-              },
-              "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+              "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+              "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
             },
             "Handler": "handler.function3",
             "Runtime": "nodejs18.x",
-            "FunctionName": "stack1-dev1-dev-function3",
+            "FunctionName": "stack1-dev-dev-function3",
             "MemorySize": 128,
             "Timeout": 10,
             "Role": {
@@ -3840,14 +3422,12 @@
           "Type": "AWS::Lambda::Function",
           "Properties": {
             "Code": {
-              "S3Bucket": {
-                "Ref": "ServerlessDeploymentBucket"
-              },
-              "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+              "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+              "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
             },
             "Handler": "handler.function4",
             "Runtime": "nodejs18.x",
-            "FunctionName": "stack1-dev1-dev-function4",
+            "FunctionName": "stack1-dev-dev-function4",
             "MemorySize": 128,
             "Timeout": 10,
             "Role": {
@@ -3865,14 +3445,12 @@
           "Type": "AWS::Lambda::Function",
           "Properties": {
             "Code": {
-              "S3Bucket": {
-                "Ref": "ServerlessDeploymentBucket"
-              },
-              "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+              "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+              "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
             },
             "Handler": "handler.function5",
             "Runtime": "nodejs18.x",
-            "FunctionName": "stack1-dev1-dev-function5",
+            "FunctionName": "stack1-dev-dev-function5",
             "MemorySize": 128,
             "Timeout": 10,
             "Role": {
@@ -3890,14 +3468,12 @@
           "Type": "AWS::Lambda::Function",
           "Properties": {
             "Code": {
-              "S3Bucket": {
-                "Ref": "ServerlessDeploymentBucket"
-              },
-              "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+              "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+              "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
             },
             "Handler": "handler.function6",
             "Runtime": "nodejs18.x",
-            "FunctionName": "stack1-dev1-dev-function6",
+            "FunctionName": "stack1-dev-dev-function6",
             "MemorySize": 128,
             "Timeout": 10,
             "Role": {
@@ -3915,14 +3491,12 @@
           "Type": "AWS::Lambda::Function",
           "Properties": {
             "Code": {
-              "S3Bucket": {
-                "Ref": "ServerlessDeploymentBucket"
-              },
-              "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+              "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+              "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
             },
             "Handler": "handler.function7",
             "Runtime": "nodejs18.x",
-            "FunctionName": "stack1-dev1-dev-function7",
+            "FunctionName": "stack1-dev-dev-function7",
             "MemorySize": 128,
             "Timeout": 10,
             "Role": {
@@ -3940,14 +3514,12 @@
           "Type": "AWS::Lambda::Function",
           "Properties": {
             "Code": {
-              "S3Bucket": {
-                "Ref": "ServerlessDeploymentBucket"
-              },
-              "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+              "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+              "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
             },
             "Handler": "handler.function8",
             "Runtime": "nodejs18.x",
-            "FunctionName": "stack1-dev1-dev-function8",
+            "FunctionName": "stack1-dev-dev-function8",
             "MemorySize": 128,
             "Timeout": 10,
             "Role": {
@@ -3965,14 +3537,12 @@
           "Type": "AWS::Lambda::Function",
           "Properties": {
             "Code": {
-              "S3Bucket": {
-                "Ref": "ServerlessDeploymentBucket"
-              },
-              "S3Key": "serverless/stack1-dev1/dev/1743133667778-2025-03-28T03:47:47.778Z/stack1-dev1.zip"
+              "S3Bucket": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
+              "S3Key": "serverless/stack1-dev/dev/1743423947340-2025-03-31T12:25:47.340Z/stack1-dev.zip"
             },
             "Handler": "handler.function9",
             "Runtime": "nodejs18.x",
-            "FunctionName": "stack1-dev1-dev-function9",
+            "FunctionName": "stack1-dev-dev-function9",
             "MemorySize": 128,
             "Timeout": 10,
             "Role": {
@@ -3986,100 +3556,100 @@
             "Function9LogGroup"
           ]
         },
-        "Function1LambdaVersionU4Nw0QF4t3UtFPPtG39Rvg7gQo2Vf8wcIhdx9ROUk": {
+        "Function1LambdaVersionYkvsm7CEvFI1HoLC8su7jYKKeU7OnyX8EY9StTmdk": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "Function1LambdaFunction"
             },
-            "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+            "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
           }
         },
-        "Function2LambdaVersionT9QEcX4LqgL3Mxjduf00l1R95I7qRl5qyVIkpZvUj4": {
+        "Function2LambdaVersion3PgCnLDOCrNtHciSaiMjvrdsTHsE8RoXiknw23C0": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "Function2LambdaFunction"
             },
-            "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+            "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
           }
         },
-        "Function3LambdaVersionEK9j0g1m7QqO3BPiv9BvGQPj6k0bEx5IcXBHRVA0JU": {
+        "Function3LambdaVersionNWlR83JL1vRFc5ls8VCtyMBI4vBSt6zUereEi9iMKwk": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "Function3LambdaFunction"
             },
-            "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+            "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
           }
         },
-        "Function4LambdaVersionFBm8tig5XKFNZY3KoGZhefJsD93uiYyyvyAhqMgKCig": {
+        "Function4LambdaVersion7sVYOandKPaaDRIKrXWH318HffarZYEZtyBXuvmEeUo": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "Function4LambdaFunction"
             },
-            "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+            "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
           }
         },
-        "Function5LambdaVersionVH3VnGCKvvJ004vm9jLgW4rX5uY9s35IBtVt2YNUMA": {
+        "Function5LambdaVersionQA7iQ6d5LFkvqDJ1KHNJQegVMKFISOsarfAzE8oUMc": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "Function5LambdaFunction"
             },
-            "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+            "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
           }
         },
-        "Function6LambdaVersionYcpzfIFZ46JqCGzWbMSEblCVYSixNkuHfZu5M6wnbg": {
+        "Function6LambdaVersion6f0eU4zb4OAI8eDO52LgoAWIDw7ZuPXWybo6Fw8VZNk": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "Function6LambdaFunction"
             },
-            "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+            "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
           }
         },
-        "Function7LambdaVersionFTB7CfdH6LWvQQSdk9UMkpCoJ4HTytciOzlFu9Kbal0": {
+        "Function7LambdaVersionPnoQORPZFlbqqkiUj46T4UTc1D8HaDOP2nByAIIdRE": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "Function7LambdaFunction"
             },
-            "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+            "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
           }
         },
-        "Function8LambdaVersionki0ubovSf7kTnHuK5lEGk8MtCzgx3PvaXafSyv1Rqk": {
+        "Function8LambdaVersionxccTWJzSxRzjxdHIyDOYFLoZZGl6Qd5NU8UlqDjoEM": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "Function8LambdaFunction"
             },
-            "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+            "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
           }
         },
-        "Function9LambdaVersion2cgZe9F2BrXgVcrgkHxvYKvx6EfN2DGLwb0B8VCo": {
+        "Function9LambdaVersionySgP11m4zPdMJK85aJK9snlHc5FmPE0mAfSBQZu6vdE": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "Function9LambdaFunction"
             },
-            "CodeSha256": "4Dt4BvnQ/N8fukXJE46wWTiHR7VMiOXBY9yCdvvThmI="
+            "CodeSha256": "XO7ao49wXgNIfedcnLsMRSr0cun5NaHy2pOBsHva/dA="
           }
         },
         "ApiGatewayRestApi": {
           "Type": "AWS::ApiGateway::RestApi",
           "Properties": {
-            "Name": "dev-stack1-dev1",
+            "Name": "dev-stack1-dev",
             "EndpointConfiguration": {
               "Types": [
                 "EDGE"
@@ -4637,7 +4207,7 @@
             "Function9LambdaPermissionApiGateway"
           ]
         },
-        "ApiGatewayDeployment1743133637179": {
+        "ApiGatewayDeployment1743423915334": {
           "Type": "AWS::ApiGateway::Deployment",
           "Properties": {
             "RestApiId": {
@@ -4993,92 +4563,90 @@
       },
       "Outputs": {
         "ServerlessDeploymentBucketName": {
-          "Value": {
-            "Ref": "ServerlessDeploymentBucket"
-          },
+          "Value": "serverless-framework-deployments-us-east-1-47defdbf-75fb",
           "Export": {
-            "Name": "sls-stack1-dev1-dev-ServerlessDeploymentBucketName"
+            "Name": "sls-stack1-dev-dev-ServerlessDeploymentBucketName"
           }
         },
         "Function1LambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "Function1LambdaVersionU4Nw0QF4t3UtFPPtG39Rvg7gQo2Vf8wcIhdx9ROUk"
+            "Ref": "Function1LambdaVersionYkvsm7CEvFI1HoLC8su7jYKKeU7OnyX8EY9StTmdk"
           },
           "Export": {
-            "Name": "sls-stack1-dev1-dev-Function1LambdaFunctionQualifiedArn"
+            "Name": "sls-stack1-dev-dev-Function1LambdaFunctionQualifiedArn"
           }
         },
         "Function2LambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "Function2LambdaVersionT9QEcX4LqgL3Mxjduf00l1R95I7qRl5qyVIkpZvUj4"
+            "Ref": "Function2LambdaVersion3PgCnLDOCrNtHciSaiMjvrdsTHsE8RoXiknw23C0"
           },
           "Export": {
-            "Name": "sls-stack1-dev1-dev-Function2LambdaFunctionQualifiedArn"
+            "Name": "sls-stack1-dev-dev-Function2LambdaFunctionQualifiedArn"
           }
         },
         "Function3LambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "Function3LambdaVersionEK9j0g1m7QqO3BPiv9BvGQPj6k0bEx5IcXBHRVA0JU"
+            "Ref": "Function3LambdaVersionNWlR83JL1vRFc5ls8VCtyMBI4vBSt6zUereEi9iMKwk"
           },
           "Export": {
-            "Name": "sls-stack1-dev1-dev-Function3LambdaFunctionQualifiedArn"
+            "Name": "sls-stack1-dev-dev-Function3LambdaFunctionQualifiedArn"
           }
         },
         "Function4LambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "Function4LambdaVersionFBm8tig5XKFNZY3KoGZhefJsD93uiYyyvyAhqMgKCig"
+            "Ref": "Function4LambdaVersion7sVYOandKPaaDRIKrXWH318HffarZYEZtyBXuvmEeUo"
           },
           "Export": {
-            "Name": "sls-stack1-dev1-dev-Function4LambdaFunctionQualifiedArn"
+            "Name": "sls-stack1-dev-dev-Function4LambdaFunctionQualifiedArn"
           }
         },
         "Function5LambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "Function5LambdaVersionVH3VnGCKvvJ004vm9jLgW4rX5uY9s35IBtVt2YNUMA"
+            "Ref": "Function5LambdaVersionQA7iQ6d5LFkvqDJ1KHNJQegVMKFISOsarfAzE8oUMc"
           },
           "Export": {
-            "Name": "sls-stack1-dev1-dev-Function5LambdaFunctionQualifiedArn"
+            "Name": "sls-stack1-dev-dev-Function5LambdaFunctionQualifiedArn"
           }
         },
         "Function6LambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "Function6LambdaVersionYcpzfIFZ46JqCGzWbMSEblCVYSixNkuHfZu5M6wnbg"
+            "Ref": "Function6LambdaVersion6f0eU4zb4OAI8eDO52LgoAWIDw7ZuPXWybo6Fw8VZNk"
           },
           "Export": {
-            "Name": "sls-stack1-dev1-dev-Function6LambdaFunctionQualifiedArn"
+            "Name": "sls-stack1-dev-dev-Function6LambdaFunctionQualifiedArn"
           }
         },
         "Function7LambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "Function7LambdaVersionFTB7CfdH6LWvQQSdk9UMkpCoJ4HTytciOzlFu9Kbal0"
+            "Ref": "Function7LambdaVersionPnoQORPZFlbqqkiUj46T4UTc1D8HaDOP2nByAIIdRE"
           },
           "Export": {
-            "Name": "sls-stack1-dev1-dev-Function7LambdaFunctionQualifiedArn"
+            "Name": "sls-stack1-dev-dev-Function7LambdaFunctionQualifiedArn"
           }
         },
         "Function8LambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "Function8LambdaVersionki0ubovSf7kTnHuK5lEGk8MtCzgx3PvaXafSyv1Rqk"
+            "Ref": "Function8LambdaVersionxccTWJzSxRzjxdHIyDOYFLoZZGl6Qd5NU8UlqDjoEM"
           },
           "Export": {
-            "Name": "sls-stack1-dev1-dev-Function8LambdaFunctionQualifiedArn"
+            "Name": "sls-stack1-dev-dev-Function8LambdaFunctionQualifiedArn"
           }
         },
         "Function9LambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "Function9LambdaVersion2cgZe9F2BrXgVcrgkHxvYKvx6EfN2DGLwb0B8VCo"
+            "Ref": "Function9LambdaVersionySgP11m4zPdMJK85aJK9snlHc5FmPE0mAfSBQZu6vdE"
           },
           "Export": {
-            "Name": "sls-stack1-dev1-dev-Function9LambdaFunctionQualifiedArn"
+            "Name": "sls-stack1-dev-dev-Function9LambdaFunctionQualifiedArn"
           }
         },
         "ServiceEndpoint": {
@@ -5104,89 +4672,7 @@
             ]
           },
           "Export": {
-            "Name": "sls-stack1-dev1-dev-ServiceEndpoint"
-          }
-        }
-      }
-    },
-    "coreCloudFormationTemplate": {
-      "AWSTemplateFormatVersion": "2010-09-09",
-      "Description": "The AWS CloudFormation template for this Serverless application",
-      "Resources": {
-        "ServerlessDeploymentBucket": {
-          "Type": "AWS::S3::Bucket",
-          "Properties": {
-            "BucketEncryption": {
-              "ServerSideEncryptionConfiguration": [
-                {
-                  "ServerSideEncryptionByDefault": {
-                    "SSEAlgorithm": "AES256"
-                  }
-                }
-              ]
-            }
-          }
-        },
-        "ServerlessDeploymentBucketPolicy": {
-          "Type": "AWS::S3::BucketPolicy",
-          "Properties": {
-            "Bucket": {
-              "Ref": "ServerlessDeploymentBucket"
-            },
-            "PolicyDocument": {
-              "Statement": [
-                {
-                  "Action": "s3:*",
-                  "Effect": "Deny",
-                  "Principal": "*",
-                  "Resource": [
-                    {
-                      "Fn::Join": [
-                        "",
-                        [
-                          "arn:",
-                          {
-                            "Ref": "AWS::Partition"
-                          },
-                          ":s3:::",
-                          {
-                            "Ref": "ServerlessDeploymentBucket"
-                          },
-                          "/*"
-                        ]
-                      ]
-                    },
-                    {
-                      "Fn::Join": [
-                        "",
-                        [
-                          "arn:",
-                          {
-                            "Ref": "AWS::Partition"
-                          },
-                          ":s3:::",
-                          {
-                            "Ref": "ServerlessDeploymentBucket"
-                          }
-                        ]
-                      ]
-                    }
-                  ],
-                  "Condition": {
-                    "Bool": {
-                      "aws:SecureTransport": false
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        }
-      },
-      "Outputs": {
-        "ServerlessDeploymentBucketName": {
-          "Value": {
-            "Ref": "ServerlessDeploymentBucket"
+            "Name": "sls-stack1-dev-dev-ServiceEndpoint"
           }
         }
       }
