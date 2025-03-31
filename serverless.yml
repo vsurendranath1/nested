@@ -19,8 +19,27 @@ provider:
       Resource: "*"
 plugins:
    - serverless-offline
+   - serverless-aws-nested-stacks
    
-   
+custom:
+  nestedStacks:
+    enabled: true
+    stacks:
+      FunctionsStack1:
+        resources:
+          - function1
+          - function2
+          - function3
+      FunctionsStack2:
+        resources:
+          - function4
+          - function5
+          - function6
+      FunctionsStack3:
+        resources:
+          - function7
+          - function8
+          - function9   
 
 
 functions:
