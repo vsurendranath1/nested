@@ -1,11 +1,12 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
-  MyNestedStack:
-    Type: AWS::CloudFormation::Stack
-    Properties:
-      StackName: FunctionsStack1
   Function1:
     Type: AWS::Lambda::Function
+    Type: AWS::Logs::LogGroup
+    Type: AWS::ApiGateway::Method
+    Type: AWS::Lambda::Version
+    Type: AWS::Lambda::Permission
+    Type: AWS::ApiGateway::Resource
     Properties:
       FunctionName: function1
       Handler: handler.function1
