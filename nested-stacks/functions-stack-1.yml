@@ -15,6 +15,7 @@ Resources:
       Timeout: 10
   Function2:
     Type: AWS::Lambda::Function
+    Type: AWS::Logs::LogGroup
     Properties:
       FunctionName: function2
       Handler: handler.function2
