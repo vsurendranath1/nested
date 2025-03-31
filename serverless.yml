@@ -26,13 +26,13 @@ custom:
     stacks:
       FunctionsStack1:
         - id: FunctionsStack1
-        template: functions-stack-1.yml
+          template: functions-stack-1.yml
       FunctionsStack2:
         - id: FunctionsStack2
-        template: functions-stack-2.yml
+          template: functions-stack-2.yml
       FunctionsStack3:
         - id: FunctionsStack3
-        template: functions-stack-3.yml
+          template: functions-stack-3.yml
 
 
 functions:
