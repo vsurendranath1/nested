@@ -22,24 +22,17 @@ plugins:
    - serverless-aws-nested-stacks
    
 custom:
-  nestedStacks:
-    enabled: true
+  nested-stacks:
     stacks:
       FunctionsStack1:
-        resources:
-          - function1
-          - function2
-          - function3
+        id: FunctionsStack1
+        template: functions-stack-1.yml
       FunctionsStack2:
-        resources:
-          - function4
-          - function5
-          - function6
+        id: FunctionsStack2
+        template: functions-stack-2.yml
       FunctionsStack3:
-        resources:
-          - function7
-          - function8
-          - function9   
+        id: FunctionsStack3
+        template: functions-stack-3.yml
 
 
 functions:
