@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   Function4:
-   Type: AWS::Lambda::Function
+    Type: AWS::Lambda::Function
     Type: AWS::Logs::LogGroup
     Type: AWS::ApiGateway::Method
     Type: AWS::Lambda::Version
