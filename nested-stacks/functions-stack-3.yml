@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
-  Function1:
+  Function7:
     Type: AWS::Lambda::Function
     Properties:
       FunctionName: function7
@@ -8,7 +8,7 @@ Resources:
       Runtime: nodejs18.x
       MemorySize: 128
       Timeout: 10
-  Function2:
+  Function8:
     Type: AWS::Lambda::Function
     Properties:
       FunctionName: function8
@@ -16,7 +16,7 @@ Resources:
       Runtime: nodejs18.x
       MemorySize: 128
       Timeout: 10
-  Function3:
+  Function9:
     Type: AWS::Lambda::Function
     Properties:
       FunctionName: function9
