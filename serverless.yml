@@ -25,11 +25,11 @@ custom:
   nested-stacks:
     location: nested-stacks  # Folder where nested stack templates are stored
     stacks:
-      - id: Functions-Stack1
+      - id: FunctionsStack1
         template: functions-stack-1.yml
-      - id: Functions-Stack2
+      - id: FunctionsStack2
         template: functions-stack-2.yml
-      - id: Functions-Stack3
+      - id: FunctionsStack3
         template: functions-stack-3.yml
 
 
