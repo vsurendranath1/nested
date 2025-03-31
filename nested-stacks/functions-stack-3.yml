@@ -1,1 +1,26 @@
-
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  Function1:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: function7
+      Handler: handler.function7
+      Runtime: nodejs18.x
+      MemorySize: 128
+      Timeout: 10
+  Function2:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: function8
+      Handler: handler.function8
+      Runtime: nodejs18.x
+      MemorySize: 128
+      Timeout: 10
+  Function3:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: function9
+      Handler: handler.function9
+      Runtime: nodejs18.x
+      MemorySize: 128
+      Timeout: 10
