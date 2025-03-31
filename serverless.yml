@@ -3,7 +3,7 @@ org: surendra123
 # "app" enables Serverless Framework Dashboard features and sharing them with other Services.
 app: nestedstacks
 # "service" is the name of this project. This will also be added to your AWS resource names.
-service: stack1-dev1
+service: stack123
 
 provider:
   name: aws
