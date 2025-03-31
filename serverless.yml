@@ -21,16 +21,7 @@ plugins:
    - serverless-offline
    - serverless-aws-nested-stacks
    
-custom:
-  nested-stacks:
-    location: nested-stacks  # Folder where nested stack templates are stored
-    stacks:
-      - id: FunctionsStack1
-        template: functions-stack-1.yml
-      - id: FunctionsStack2
-        template: functions-stack-2.yml
-      - id: FunctionsStack3
-        template: functions-stack-3.yml
+
 
 
 
