@@ -23,22 +23,18 @@ plugins:
 custom:
   nested-stacks:
     stacks:
-      LambdaStack:
-        - AWS::Lambda::Function
-        - AWS::Lambda::Permission
-        - AWS::Lambda::Version
-      LogsStack:
-        - AWS::Logs::LogGroup
-      ApiGatewayStack:
-        - AWS::ApiGateway::Method
-        - AWS::ApiGateway::Resource
-        - AWS::ApiGatewayV2::Integration
-      IamStack:
-        - AWS::IAM::Role
-        - AWS::IAM::Policy
-    stackNamePrefix: '${self:service}-${self:provider.stage}-'
-    exportOutputs: true
-    dependencyResolution: deep
+      - id: LambdaStack
+        template: stacks/lambda
+        parameters:
+          Stage: ${opt:stage, 'dev'}
+        tags:
+          Service: ${self:service}
+        timeout: 20
+
+      - id: ApiStack
+        template: stacks/api
+        parameters:
+          ServiceName: ${self:service}
 
       
 functions:
