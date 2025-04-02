@@ -24,17 +24,16 @@ custom:
   nested-stacks:
     stacks:
       - id: LambdaStack
-        template: stacks/lambda
+        template: stacks/lambda.yml
         parameters:
-          Stage: ${opt:stage, 'dev'}
-        tags:
-          Service: ${self:service}
-        timeout: 20
-
+          Stage: ${self:provider.stage}
+      
       - id: ApiStack
-        template: stacks/api
-        parameters:
-          ServiceName: ${self:service}
+        template: stacks/api.yml
+
+package:
+  include:
+    - stacks/**
 
       
 functions:
