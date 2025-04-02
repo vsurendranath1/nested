@@ -21,9 +21,8 @@ plugins:
    - serverless-offline
    - serverless-aws-nested-stacks
 custom:
-  nestedStacks:
-    perType: true
-    stackResources:
+  nested-stacks:
+    stacks:
       LambdaStack:
         - AWS::Lambda::Function
         - AWS::Lambda::Permission
