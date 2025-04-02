@@ -9,7 +9,7 @@ provider:
   name: aws
   runtime: nodejs18.x
   region: us-east-1
-  stackName: stack1-dev
+  stage: dev
   memorySize: 128
   timeout: 10
   iamRoleStatements:
@@ -19,6 +19,28 @@ provider:
       Resource: "*"
 plugins:
    - serverless-offline
+   - serverless-aws-nested-stacks
+custom:
+  nestedStacks:
+    perType: true
+    stackResources:
+      LambdaStack:
+        - AWS::Lambda::Function
+        - AWS::Lambda::Permission
+        - AWS::Lambda::Version
+      LogsStack:
+        - AWS::Logs::LogGroup
+      ApiGatewayStack:
+        - AWS::ApiGateway::Method
+        - AWS::ApiGateway::Resource
+        - AWS::ApiGatewayV2::Integration
+      IamStack:
+        - AWS::IAM::Role
+        - AWS::IAM::Policy
+    stackNamePrefix: '${self:service}-${self:provider.stage}-'
+    exportOutputs: true
+    dependencyResolution: deep
+
       
 functions:
   function1:
