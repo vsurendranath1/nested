@@ -25,8 +25,8 @@ custom:
     perType: false # we're using custom logic instead
     default: false
     custom:
-      lambda: ${file(split-stacks/lambda-filter.js)}
-      api: ${file(split-stacks/api-filter.js)}
+      lambda: ${file(stack1/split-stacks/lambda-filter.js)}
+      api: ${file(stack1/split-stacks/api-filter.js)}
 
       
 functions:
