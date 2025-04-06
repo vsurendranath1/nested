@@ -20,13 +20,6 @@ provider:
 plugins:
   - serverless-split-stack
 
-custom:
-  splitStacks:
-    perType: false # we're using custom logic instead
-    default: false
-    custom:
-      lambda: ${file(./split-stacks/lambda-filter.js)}
-      api: ${file(./split-stacks/api-filter.js)}
 
       
 functions:
