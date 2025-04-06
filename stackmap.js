@@ -1,6 +1,6 @@
 const stacksMap = require('serverless-plugin-split-stacks').stacksMap;
 
-module.exports = (resource, logicalId) => {
+/*module.exports = (resource, logicalId) => {
   const apiTypes = [
     'AWS::ApiGateway::Method',
     'AWS::ApiGateway::Resource',
@@ -14,4 +14,4 @@ module.exports = (resource, logicalId) => {
   }
 
   return null;
-};
+};*/
