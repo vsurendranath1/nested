@@ -18,22 +18,15 @@ provider:
         - lambda:InvokeFunction
       Resource: "*"
 plugins:
-   - serverless-offline
-   - serverless-aws-nested-stacks
-custom:
-  nested-stacks:
-    stacks:
-      - id: LambdaStack
-        template: stacks/lambda.yml
-        parameters:
-          Stage: ${self:provider.stage}
-      
-      - id: ApiStack
-        template: stacks/api.yml
+  - serverless-split-stack
 
-package:
-  include:
-    - stacks/**
+custom:
+  splitStacks:
+    perType: false # we're using custom logic instead
+    default: false
+    custom:
+      lambda: ${file(split-stacks/lambda-filter.js)}
+      api: ${file(split-stacks/api-filter.js)}
 
       
 functions:
