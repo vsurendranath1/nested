@@ -3,7 +3,7 @@ name: Deploy to aws
 on:
   push:
     branches:
-      - main
+      - main12
 
 jobs:
   deploy:
@@ -21,6 +21,13 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: yarn install
+
+    - name: Show deployment ZIP file size
+      run: |
+          echo "Listing ZIP files in .serverless folder:"
+          ls -lh .serverless/*.zip
+
+
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2
